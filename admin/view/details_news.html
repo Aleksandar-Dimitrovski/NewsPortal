@@ -1,0 +1,84 @@
+<div class="alert alert-danger" ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+
+<form name="myForm">
+
+  <span class="alert alert-danger" ng-show="myForm.news_title.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="news_title" class="form-label">News title:</label>
+    <input type="text" 
+           class="form-control" 
+           id="news_title" 
+           placeholder="Enter news title" 
+           name="news_title" 
+           ng-model="news_title" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.news_content.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="news_content" class="form-label">News content:</label>
+    <input type="text" 
+           class="form-control" 
+           id="news_content" 
+           placeholder="Enter news content" 
+           name="news_content" 
+           ng-model="news_content" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.news_image_path.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="news_image_path" class="form-label">News image path:</label>
+    <input type="text" 
+           class="form-control" 
+           id="news_image_path" 
+           placeholder="Enter news image path" 
+           name="news_image_path" 
+           ng-model="news_image_path">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.news_datetime.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="news_datetime" class="form-label">News datetime:</label>
+    <input type="datetime-local" 
+           class="form-control" 
+           id="news_datetime" 
+           placeholder="Enter news datetime" 
+           name="news_datetime" 
+           ng-model="news_datetime">
+  </div>
+
+
+  <span class="alert alert-danger" ng-show="myForm.Categories.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="category_id" class="form-label">Category:</label>
+    <select name="category_id" id="category_id" ng-model="category_id" class="form-control">
+      <option ng-repeat="novacategories in categories" value="{{novacategories.category_id}}">{{novacategories.category_name}}</option>
+    </select>
+  </div>
+  
+  <button class="btn btn-primary" 
+    ng-click="(myForm.news_title.$valid && myForm.news_title.$dirty) &&
+    (myForm.news_content.$valid && myForm.news_content.$dirty) &&
+    (myForm.news_datetime.$valid && myForm.news_datetime.$dirty) &&
+    (myForm.news_image_path.$valid && myForm.news_image_path.$dirty) &&
+    (myForm.category_id.$valid && myForm.category_id.$dirty) 
+    ? details_news(news_title, news_content, news_datetime, news_image_path, category_id) : error()">Save
+  </button>   
+</form> 

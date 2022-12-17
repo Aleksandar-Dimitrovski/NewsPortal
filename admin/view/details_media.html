@@ -1,0 +1,85 @@
+<div class="alert alert-danger" ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+
+<form name="myForm">
+
+  <span class="alert alert-danger" ng-show="myForm.media_title.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="media_title" class="form-label">Media title:</label>
+    <input type="text" 
+           class="form-control" 
+           id="media_title" 
+           placeholder="Enter media title" 
+           name="media_title" 
+           ng-model="media_title" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.media_type.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="media_type" class="form-label">Media type:</label>
+    <input type="text" 
+           class="form-control" 
+           id="media_type" 
+           placeholder="Enter media type" 
+           name="media_type" 
+           ng-model="media_type" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.media_datetime.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="media_datetime" class="form-label">Media datetime:</label>
+    <input type="datetime-local" 
+           class="form-control" 
+           id="media_datetime" 
+           placeholder="Enter news datetime" 
+           name="media_datetime" 
+           ng-model="media_datetime" 
+           ng-minlength="3">
+  </div>
+
+
+
+  <span class="alert alert-danger" ng-show="myForm.media_image_path.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="media_image_path" class="form-label">Media image path:</label>
+    <input type="text" 
+           class="form-control" 
+           id="media_image_path" 
+           placeholder="Enter media image path" 
+           name="media_image_path" 
+           ng-model="media_image_path" 
+           ng-minlength="3">
+  </div>
+
+
+
+  <div class="mb-3 mt-3">
+    <label for="category_id" class="form-label">Category:</label>
+    <select name="category_id" id="category_id" ng-model="category_id" class="form-control">
+      <option ng-repeat="novacategories in categories" value="{{novacategories.category_id}}">{{novacategories.category_name}}</option>
+    </select>
+  </div>
+  
+  <button class="btn btn-primary" 
+    ng-click="(myForm.media_title.$valid && myForm.media_title.$dirty) &&
+    (myForm.media_type.$valid && myForm.media_type.$dirty) &&
+    (myForm.media_datetime.$valid && myForm.media_datetime.$dirty) &&
+    (myForm.media_image_path.$valid && myForm.media_image_path.$dirty) &&
+    (myForm.category_id.$valid && myForm.category_id.$dirty)
+    ? details_media(media_title, media_type, media_datetime, media_image_path, category_id) : error()">Save
+  </button>   
+</form>

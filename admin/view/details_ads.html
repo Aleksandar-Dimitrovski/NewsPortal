@@ -1,0 +1,81 @@
+<div class="alert alert-danger" ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+
+<form name="myForm">
+
+  <span class="alert alert-danger" ng-show="myForm.ads_customer_name.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="ads_customer_name" class="form-label">Ads customer`s name:</label>
+    <input type="text" 
+           class="form-control" 
+           id="ads_customer_name" 
+           placeholder="Enter customer`s name" 
+           name="ads_customer_name" 
+           ng-model="ads_customer_name" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.ads_starttime.$invalid">
+    Vnesete broj
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="ads_starttime" class="form-label">Ads starttime:</label>
+    <input type="datetime-local" 
+           class="form-control" 
+           id="ads_starttime" 
+           placeholder="Enter ads starttime" 
+           name="ads_starttime" 
+           ng-model="ads_starttime" 
+           ng-minlength="1">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.ads_endtime.$invalid">
+    Vnesete min broj
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="ads_endtime" class="form-label">Ads endtime:</label>
+    <input type="datetime-local" 
+           class="form-control" 
+           id="ads_endtime" 
+           placeholder="Enter ads endtime" 
+           name="ads_endtime" 
+           ng-model="ads_endtime" 
+           ng-minlength="1">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.ads_price.$invalid">
+    Vnesete min 1 broj
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="ads_price" class="form-label">Ads price:</label>
+    <input type="number" 
+           class="form-control" 
+           id="ads_price" 
+           placeholder="Ads price" 
+           name="ads_price" 
+           ng-model="ads_price" 
+           ng-minlength="4">
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="customer_id" class="form-label">Customer:</label>
+    <select name="customer_id" id="customer_id" ng-model="customer_id" class="form-control">
+      <option ng-repeat="novacustomers in customers" value="{{novacustomers.customer_id}}">{{novacustomers.customer_name}}</option>
+    </select>
+  </div>
+  
+  <button class="btn btn-primary" 
+    ng-click="(myForm.ads_customer_name.$valid && myForm.ads_customer_name.$dirty) &&
+    (myForm.ads_starttime.$valid && myForm.ads_starttime.$dirty) &&
+    (myForm.ads_endtime.$valid && myForm.ads_endtime.$dirty) &&
+    (myForm.ads_price.$valid && myForm.ads_price.$dirty) &&
+    (myForm.customer_id.$valid && myForm.customer_id.$dirty)
+    ? details_ads(ads_customer_name, ads_starttime, ads_endtime, ads_price, customer_id) : error()">Save
+  </button>   
+</form>

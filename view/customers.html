@@ -1,0 +1,27 @@
+<div class="col-sm-3 col-md-4">        
+</div><!--left cont.-->
+<div class="col-sm-12">        
+  <h3>Customers</h3>        
+  <table class="table table-bordered border-primary">
+      <thead>
+          <tr>
+              <th>Reden broj</th>
+              <th>customer_name</th>
+              <th>tel</th>
+              <th>email</th>
+              <th>address</th>
+              <th>DELETE</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="novacustomers in customers">
+              <td>{{$index+1}}</td>
+              <td>{{novacustomers.customer_name}}</td>
+              <td>{{novacustomers.tel}}</td>
+              <td>{{novacustomers.email}}</td>
+              <td>{{novacustomers.address}}</td>
+              <td><i class="btn btn-danger fa fa-trash"></i></td>            
+          </tr>         
+      </tbody>
+  </table>
+</div>

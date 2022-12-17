@@ -1,0 +1,73 @@
+<div class="alert alert-danger" ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+
+<form name="myForm">
+
+  <span class="alert alert-danger" ng-show="myForm.customer_name.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="customer_name" class="form-label">Customer`s name:</label>
+    <input type="text" 
+           class="form-control" 
+           id="customer_name" 
+           placeholder="Enter customer`s name" 
+           name="customer_name" 
+           ng-model="customer_name" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.tel.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="tel" class="form-label">Tel:</label>
+    <input type="number" 
+           class="form-control" 
+           id="tel" 
+           placeholder="Enter tel" 
+           name="tel" 
+           ng-model="tel" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.email.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="email" class="form-label">Email:</label>
+    <input type="email" 
+           class="form-control" 
+           id="email" 
+           placeholder="Enter email" 
+           name="email" 
+           ng-model="email" 
+           ng-minlength="3">
+  </div>
+
+  <span class="alert alert-danger" ng-show="myForm.address.$invalid">
+    Vnesete min 3 bukvi
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="address" class="form-label">Address:</label>
+    <input type="text" 
+           class="form-control" 
+           id="address" 
+           placeholder="Enter address" 
+           name="address" 
+           ng-model="address" 
+           ng-minlength="3">
+  </div>  
+  
+  <button class="btn btn-primary" 
+    ng-click="(myForm.customer_name.$valid && myForm.customer_name.$dirty) &&
+    (myForm.tel.$valid && myForm.tel.$dirty) &&
+    (myForm.email.$valid && myForm.email.$dirty) &&
+    (myForm.address.$valid && myForm.address.$dirty) 
+    ? details_customers(customer_name, tel, email, address) : error()">Save
+  </button>   
+</form>

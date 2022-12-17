@@ -1,0 +1,27 @@
+<div class="col-sm-3 col-md-4">        
+</div><!--left cont.-->
+<div class="col-sm-12">        
+  <h3>Ads</h3>        
+  <table class="table table-bordered border-primary">
+      <thead>
+          <tr>
+              <th>Reden broj</th>
+              <th>ads_customer_name</th>
+              <th>ads_starttime</th>
+              <th>ads_endtime</th>
+              <th>ads_price</th>
+              <th>DELETE</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="novaads in ads">
+              <td>{{$index+1}}</td>
+              <td>{{novaads.ads_customer_name}}</td>
+              <td>{{novaads.ads_starttime}}</td>
+              <td>{{novaads.ads_endtime}}</td>
+              <td>{{novaads.ads_price}}</td>
+              <td><i class="btn btn-danger fa fa-trash"></i></td>            
+          </tr>         
+      </tbody>
+  </table>
+</div>

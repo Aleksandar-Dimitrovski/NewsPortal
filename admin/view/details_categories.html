@@ -1,0 +1,24 @@
+<div class="alert alert-danger"  ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+
+<form name="myForm">
+  <span class="alert alert-danger" ng-show="myForm.category_name.$invalid">
+    Enter category name
+  </span>
+
+  <div class="mb-3 mt-3">
+    <label for="category_name" class="form-label">Category name:</label>
+    <input type="text" 
+           class="form-control" 
+           id="category_name" 
+           placeholder="Enter category" 
+           name="category_name" 
+           ng-model="category_name" 
+           ng-minlength="3">
+  </div>
+  
+  <button class="btn btn-primary" 
+    data-ng-click="(myForm.category_name.$valid && myForm.category_name.$dirty)
+    ? details_categories(category_name) : error()">Save
+  </button>   
+</form>
