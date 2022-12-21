@@ -20,8 +20,40 @@
               <td>{{novaads.ads_starttime}}</td>
               <td>{{novaads.ads_endtime}}</td>
               <td>{{novaads.ads_price}}</td>
-              <td><i class="btn btn-danger fa fa-trash"></i></td>            
+              <td><button type="button" 
+                class="btn btn-danger" 
+                data-ng-click="getId($index)" 
+                data-bs-toggle="modal"
+                data-bs-target="#adsModal">
+                <i class="btn btn-danger fa fa-trash"></i>
+                </button>
+              </td> 
           </tr>         
       </tbody>
   </table>
+
+<!--modal strart-->
+
+<div class="modal fade" id="adsModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-dark" id="exampleModalLabel"><i><b>Delete!</b></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>{{getPosition}}:- Dali ste sigurni deka sakate da ja izbrisite reklamata na: {{ads[getPosition].ads_customer_name}}</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" 
+                    data-ng-click="deleteRow('ads',ads[getPosition].ads_id)"
+                    data-bs-dismiss="modal">Potvrdi</button>
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Otkazi</button>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!--modal end-->
+
 </div>

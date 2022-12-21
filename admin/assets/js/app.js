@@ -9,6 +9,27 @@ app.controller("myCtrl", function($scope, $http, $filter) {
   $scope.alertDanger = true;
   }
 
+
+//delete text from zoom chat start here Cas28
+$scope.getPosition = -1;
+	$scope.getId = function (index) {
+		$scope.getPosition = index;
+	}
+
+
+$scope.deleteRow = function (table_name, pk_value) {
+  var objDelete = [];
+  objDelete.push(
+    {
+      "table_name": table_name,
+      "pk_value": pk_value
+    }
+  )
+  postData("delete", objDelete);
+}
+//delete text from zoom chat end here Cas28
+
+
 //JSON
 $scope.categories = [];
 $http.get("model/select.php?table_name=categories") .then(function (response) {
@@ -35,26 +56,7 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
   $scope.ads = response.data;
 })
 
-//delete from chat
-$scope.getPosition = -1;
-	$scope.getId = function (index) {
-		$scope.getPosition = index;
-	}
 
-
-
-
-$scope.deleteRow = function (table_name, pk_value) {
-  var objDelete = [];
-  objDelete.push(
-    {
-      "table_name": table_name,
-      "pk_value": pk_value
-    }
-  )
-  postData("delete", objDelete);
-}
-//delete from chat end
 
  //Form Functions
 

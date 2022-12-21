@@ -20,10 +20,42 @@
             <td>{{novanews.news_content}}</td>
             <td>{{novanews.news_datetime}}</td>
             <td><img src="../uploads/{{novanews.news_image_path}}" alt=""></td>
-            <td><i class="btn btn-danger fa fa-trash"></i></td>
+            <td><button type="button" 
+              class="btn btn-danger" 
+              data-ng-click="getId($index)" 
+              data-bs-toggle="modal"
+              data-bs-target="#newsModal">
+              <i class="btn btn-danger fa fa-trash"></i>
+              </button>
+            </td> 
         </tr>
     </tbody>
-  </table>      
+  </table>    
+  
+  <!--modal strart-->
+
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-danger">
+              <h5 class="modal-title text-dark" id="exampleModalLabel"><i><b>Delete!</b></i></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <h3>{{getPosition}}:- Dali ste sigurni deka sakate da go izbrisite naslovot: {{news[getPosition].news_title}}</h3>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" 
+                  data-ng-click="deleteRow('news',news[getPosition].news_id)"
+                  data-bs-dismiss="modal">Potvrdi</button>
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Otkazi</button>
+          </div>
+      </div>
+  </div>
+</div> 
+
+<!--modal end-->
+
 </div>
 
   

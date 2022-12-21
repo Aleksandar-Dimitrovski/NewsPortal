@@ -24,6 +24,9 @@ switch($table_name){
         $records = $objNews->selectNews();
         
         foreach ($records as $row) {
+            if ($row["news_image_path"]==""){
+            $row["news_image_path"] = "noImage.jpg";
+            }
             $data[] = array(
             "news_id"=>$row["news_id"],
             "news_title"=>$row["news_title"],
@@ -38,6 +41,7 @@ switch($table_name){
         require_once "dao/mediaDAO.php";
         $objMedia = new MediaDAO($objDB);
         $records = $objMedia->selectMedia();
+
         foreach ($records as $row) {
             if ($row["media_image_path"]==""){
             $row["media_image_path"] = "noImage.jpg";
@@ -56,6 +60,7 @@ switch($table_name){
         require_once "dao/customersDAO.php";
         $objCustomers = new CustomersDAO($objDB);
         $records = $objCustomers->selectCustomers();
+
         foreach ($records as $row) {
             $data[] = array(
             "customer_id" => $row["customer_id"],
@@ -70,6 +75,7 @@ switch($table_name){
         require_once "dao/adsDAO.php";
         $objAds = new adsDAO($objDB);
         $records = $objAds->selectAds();
+        
         foreach ($records as $row) {
             $data[] = array(
             "ads_id" => $row["ads_id"],

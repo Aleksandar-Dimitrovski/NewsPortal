@@ -3,20 +3,9 @@
 <div class="col-sm-9">        
   <h3>Media</h3>
 
-  <div class="row">
-  <div class="col-sm-3 bg-success" ng-repat="novamedia in media">
-  <div class="card bg-warning m-4">
-    <img class="card-img-top" width="160" height="160" src="uploads/{{novamedia.media_image_path}}" alt="Card image">
-    <div class="card-body">
-      <h4 class="card-title">{{novamedia.media_title}}</h4>
-      <p class="card-text">{{novamedia.media_type}}</p>
-      <a href="#" class="btn btn-primary">See Media</a>
-     </div>
-    </div>
-   </div>
-  </div>
 
-  <!-- <table class="table table-bordered border-primary">
+
+    <table class="table table-bordered border-primary">
       <thead>
           <tr>
               <th>Reden broj</th>
@@ -34,22 +23,22 @@
               <td>{{novamedia.media_type}}</td>
               <td>{{novamedia.media_datetime}}</td>
               <td><img src="../uploads/{{novamedia.media_image_path}}" alt=""></td>
-              <td><button type="button" class="btn btn-danger" data-ng-click="getId($index)" data-bs-toggle="modal"
-                data-bs-target="#markiModal">
+              <td><button type="button" 
+                class="btn btn-danger" 
+                data-ng-click="getId($index)" 
+                data-bs-toggle="modal"
+                data-bs-target="#mediaModal">
                 <i class="btn btn-danger fa fa-trash"></i>
                 </button>
               </td>            
           </tr>         
       </tbody>
-  </table> -->
+  </table> 
 
 
 <!--modal strart-->
-<!-- Modal -->
 
-
-
-<div class="modal fade" id="markiModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="mediaModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
@@ -57,14 +46,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h3>Dali ste sigurni deka sakata da go izbrisite {{marki[getPosition].ime}},
-                    {{marki[getPosition].country}}
-                </h3>
+                <h3>{{getPosition}}:- Dali ste sigurni deka sakate da go izbrisite naslovot: {{media[getPosition].media_title}}</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-ng-click="deleteRow('marki',marki[getPosition].marka_id)"
+                <button type="button" class="btn btn-danger" 
+                    data-ng-click="deleteRow('media',media[getPosition].media_id)"
                     data-bs-dismiss="modal">Potvrdi</button>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Odkazi</button>
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Otkazi</button>
             </div>
         </div>
     </div>
