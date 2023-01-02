@@ -1,16 +1,18 @@
 <div class="col-sm-3 col-md-4">        
 </div><!--left cont.-->
-<div class="col-sm-12">        
-  <h3>Media</h3>        
-  <table class="table table-bordered border-primary">
+<div class="col-sm-9">        
+  <h3>Media</h3>
+
+
+
+    <table class="table table-bordered border-primary">
       <thead>
           <tr>
               <th>Reden broj</th>
               <th>media_title</th>
               <th>media_type</th>
               <th>media_datetime</th>
-              <th>media_path</th>
-              <th>DELETE</th>
+              <th>media_image_path</th>
           </tr>
       </thead>
       <tbody>
@@ -19,9 +21,9 @@
               <td>{{novamedia.media_title}}</td>
               <td>{{novamedia.media_type}}</td>
               <td>{{novamedia.media_datetime}}</td>
-              <td>{{novamedia.media_path}}</td>
-              <td><i class="btn btn-danger fa fa-trash"></i></td>            
+              <td><img ng-src="./uploads/{{novamedia.media_image_path}}" alt=""></td>       
           </tr>         
       </tbody>
-  </table>
+  </table> 
+
 </div>

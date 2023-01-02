@@ -1,6 +1,6 @@
 <div class="col-sm-3 col-md-4"></div>
 <!--left cont.-->
-<div class="col-sm-12">         
+<div class="col-sm-9">         
   <h3>News</h3>
   <table class="table table-bordered border-primary">
     <thead>
@@ -8,8 +8,9 @@
             <th>Reden broj</th>
             <th>news_title</th>
             <th>news_content</th>
-            <th>news_datetime</th>              
-            <th>DELETE</th>
+            <th>news_datetime</th>
+            <th>news_image_path</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -18,7 +19,8 @@
             <td>{{novanews.news_title}}</td>
             <td>{{novanews.news_content}}</td>
             <td>{{novanews.news_datetime}}</td>
-            <td><i class="btn btn-danger fa fa-trash"></i></td>
+            <td><img ng-src="./uploads/{{novanews.news_image_path}}" alt=""></td>       
+
         </tr>
     </tbody>
   </table>      
