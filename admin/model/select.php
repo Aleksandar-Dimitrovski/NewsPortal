@@ -73,7 +73,7 @@ switch($table_name){
 
     case "ads":
         require_once "dao/adsDAO.php";
-        $objAds = new adsDAO($objDB);
+        $objAds = new AdsDAO($objDB);
         $records = $objAds->selectAds();
         
         foreach ($records as $row) {
@@ -83,9 +83,7 @@ switch($table_name){
             "ads_starttime" => $row["ads_starttime"],
             "ads_endtime" => $row["ads_endtime"],
             "ads_price" => $row["ads_price"],
-            "customer_id" => $row["customer_id"]
-
-        );
+            "customer_id" => $row["customer_id"]);
         }
     break;
 

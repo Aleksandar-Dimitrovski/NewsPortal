@@ -1,15 +1,21 @@
 
 var app = angular.module("myApp", ["ngRoute"]);
-app.controller("myCtrl", function($scope, $http, $filter) {
+app.controller("myCtrl", function($scope, $http, $filter, $routeParams) {
   //Initialisation
+  $scope.url_param = $routeParams.id;
   $scope.alertDanger = false;
   $scope.alertSuccess = false;
+
   $scope.error = function () {
   $scope.alertSuccess = false;
   $scope.alertDanger = true;
   }
+  $scope.getPosition = -1;
+  $scope.getId = function (index) {
+    $scope.getPosition = index;
+  }
 
-//JSON
+//JSON Get data
 $scope.categories = [];
 $http.get("model/select.php?table_name=categories") .then(function (response) {
   $scope.categories = response.data;
@@ -30,9 +36,9 @@ $http.get("model/select.php?table_name=customers") .then(function (response) {
   $scope.customers = response.data;
 })
 
-$scope.ads = [];
+$scope.ads_ads = [];
 $http.get("model/select.php?table_name=ads") .then(function (response) {
-  $scope.ads = response.data;
+  $scope.ads_ads = response.data;
 })
 
  //Form Functions
@@ -44,87 +50,112 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
     data: dataObjPost
   })
 }
-
- $scope.details_categories = function(category_name) 
- {
-  var objCategories=[];
-  objCategories.push({
-    table_name: "categories",
-    "category_name":category_name
-  });
-  console.log(objCategories);
-  postData("insert", objCategories);
+//Update & Insert
+ $scope.details_categories = function (category_name, url_param) {
+  var objCategories=[]; 
+  var postTo = "insert";
+  var pk_value = -1;
+  if (url_param != undefined) {
+    postTo = "update";
+    pk_value = $scope.categories[url_param].category_id;
+  }
+    objCategories.push({
+      "category_name":category_name,
+      "table_name": "categories",
+      "pk_value":pk_value
+    });    
+    postData(postTo, objCategories); 
   $scope.alertDanger = false;
   $scope.alertSuccess = true;
  }
 
- $scope.details_news = function(news_title, news_content, news_datetime, category_id) 
- {
+ $scope.details_news = function(news_title, news_content, news_datetime, news_image_path, url_param) {
   var objNews=[];
+  var postTo = "insert";
+  var pk_value = -1;
   var news_datetime_format = $filter('date')(new Date(news_datetime),'yyyy-MM-dd H:m');
-  objNews.push({
-    table_name: "news",
+  if (url_param != undefined) {
+    postTo = "update";
+    pk_value = $scope.news[url_param].news_id;
+  }
+    objNews.push({
     "news_title":news_title,
     "news_content":news_content,
     "news_datetime":news_datetime_format,
-    "category_id":category_id
+    "news_image_path":news_image_path,
+    "table_name": "news",
+    "pk_value":pk_value  
   });
-  console.log(objNews);
-  postData("insert", objNews);
+  postData(postTo, objNews);
   $scope.alertDanger = false;
   $scope.alertSuccess = true;
  }
 
- $scope.details_media = function(media_title, media_type, media_datetime, media_path, category_id) 
- {
+ $scope.details_media = function(media_title, media_type, media_datetime, media_image_path, url_param) {
   var objMedia=[];
+  var postTo = "insert";
+  var pk_value = -1;
   var media_datetime_format = $filter('date')(new Date(media_datetime),'yyyy-MM-dd H:m');
+  if (url_param != undefined) {
+    postTo = "update";
+    pk_value = $scope.media[url_param].media_id;
+  }
+
   objMedia.push({
-    table_name: "media",
     "media_title":media_title,
     "media_type":media_type,
     "media_datetime":media_datetime_format,
-    "media_path":media_path,
-    "category_id":category_id
+    "media_image_path":media_image_path,
+    "table_name": "media",
+    "pk_value":pk_value  
   });
-  console.log(objMedia);
-  postData("insert", objMedia);
+  postData(postTo, objMedia);
   $scope.alertDanger = false;
   $scope.alertSuccess = true;
  }
 
- $scope.details_ads = function(ads_customer_name, ads_starttime, ads_endtime, ads_price, customer_id) 
- {
+ $scope.details_ads = function(ads_customer_name, ads_starttime, ads_endtime, ads_price, url_param) {
   var objAds=[];
+  var postTo = "insert";
+  var pk_value = -1;
   var ads_starttime_format = $filter('date')(new Date(ads_starttime),'yyyy-MM-dd H:m');
   var ads_endtime_format = $filter('date')(new Date(ads_endtime),'yyyy-MM-dd H:m');
+  if (url_param != undefined) {
+    postTo = "update";
+    pk_value = $scope.ads[url_param].ads_id;
+  }
 
   objAds.push({
-    table_name: "ads",
     "ads_customer_name":ads_customer_name,
     "ads_starttime":ads_starttime_format,
     "ads_endtime":ads_endtime_format,
     "ads_price":ads_price,
-    "customer_id":customer_id
+    table_name: "ads",
+    "pk_value":pk_value  
   });
-  console.log(objAds);
-  postData("insert", objAds);
+  postData(postTo, objAds);
   $scope.alertDanger = false;
   $scope.alertSuccess = true;
  }
 
- $scope.details_customers = function(customer_name, tel, email, address) 
- {
+ $scope.details_customers = function (customer_name, tel, email, address, url_param) {
   var objCustomers=[];
+  var postTo = "insert";
+  var pk_value = -1;
+  if (url_param != undefined) {
+    postTo = "update";
+    pk_value = $scope.customers[url_param].customers_id;
+  }
+
   objCustomers.push({
-    table_name: "customers",
     "customer_name":customer_name,
     "tel":tel,
     "email":email,
-    "address":address
+    "address":address,
+    table_name: "customers",
+    "pk_value":pk_value  
   });
-  console.log(objCustomers);
-  postData("insert", objCustomers);
+  postData(postTo, objCustomers);
   $scope.alertDanger = false;
   $scope.alertSuccess = true;
  }

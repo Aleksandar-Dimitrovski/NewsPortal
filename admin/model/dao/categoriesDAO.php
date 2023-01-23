@@ -12,10 +12,8 @@ class CategoriesDAO extends Categories
     //methods CRUD
     public function insertCategories(){
         $category_name = parent::getCategory_name();
-        
-        $columns_name = "category_name";
         $columns_value = "'$category_name'";
-        $this->db_conn->insertRow($this->table_name, $columns_name, $columns_value);
+        $this->db_conn->callStoreProcedure("_insert_categories($columns_value)");
     }
 
     public function deleteCategories(){
@@ -26,11 +24,11 @@ class CategoriesDAO extends Categories
     public function updateCategories(){
         $category_name = parent::getCategory_name();
         $category_id = parent::getCategory_id();
+        $columns_value = "'$category_name',$category_id";
+        $this->db_conn->callStoreProcedure("_update_categories($columns_value)");
     }
 
-    public function selectCategories(){
-        return $this->db_conn->selectRow($this->table_name);
+    public function selectCategories() {
+        return $this->db_conn->selectRowStoreProcedure("_select_categories()");
     }
 }
-
-?>

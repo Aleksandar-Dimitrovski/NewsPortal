@@ -9,7 +9,8 @@
             <th>news_title</th>
             <th>news_content</th>
             <th>news_datetime</th>
-            <th>news_image_path</th>              
+            <th>news_image_path</th>  
+            <th>EDIT</th>            
             <th>DELETE</th>
         </tr>
     </thead>
@@ -20,11 +21,19 @@
             <td>{{novanews.news_content}}</td>
             <td>{{novanews.news_datetime}}</td>
             <td><img ng-src="../uploads/{{novanews.news_image_path}}" alt=""></td>
+            <td><a href="#!details_news{{$index}}">
+                <button type="button" 
+                    class="btn btn-success" 
+                    data-ng-click="getId($index)">
+                    <i class="btn btn-success fa fa-pencil"></i>
+                </button>
+                </a>
+            </td> 
             <td><button type="button" 
-              class="btn btn-danger" 
-              data-ng-click="getId($index)" 
-              data-bs-toggle="modal"
-              data-bs-target="#newsModal">
+                    class="btn btn-danger" 
+                    data-ng-click="getId($index)" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#newsModal">
               <i class="btn btn-danger fa fa-trash"></i>
               </button>
             </td> 

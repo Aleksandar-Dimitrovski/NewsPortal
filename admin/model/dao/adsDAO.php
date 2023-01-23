@@ -17,9 +17,8 @@ class AdsDAO extends Ads
         $ads_price = parent::getAds_price();
         $customer_id = parent::getCustomer_id();
         
-        $columns_name = "ads_customer_name, ads_starttime, ads_endtime, ads_price, customer_id";
-        $columns_value = "'$ads_customer_name', '$ads_starttime', '$ads_endtime', '$ads_price', $customer_id";
-        $this->db_conn->insertRow($this->table_name, $columns_name, $columns_value);
+        $columns_value = "'$ads_customer_name', '$ads_starttime', '$ads_endtime', $ads_price, $customer_id";
+        $this->db_conn->callStoreProcedure("_insert_ads($columns_value)");
 
     }
     public function deleteCategories(){
@@ -34,9 +33,7 @@ class AdsDAO extends Ads
         $ads_price = parent::getAds_price();
         $ads_id = parent::getAds_id();
     }
-    public function selectAds(){
-        return $this->db_conn->selectRow($this->table_name);
+    public function selectAds() {
+        return $this->db_conn->selectRowStoreProcedure("_select_ads()");
     }
 }
-
-?>

@@ -1,8 +1,9 @@
-<div class="alert alert-danger"  ng-show="alertDanger">Neuspesno</div>
-<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+<div class="alert alert-danger"  data-ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" data-ng-show="alertSuccess">Uspesno</div>
+{{url_param}} {{categories[url_param].category_name}}
 
 <form name="myForm">
-  <span class="alert alert-danger" ng-show="myForm.category_name.$invalid">
+  <span class="alert alert-danger" data-ng-show="myForm.category_name.$invalid">
     Enter category name
   </span>
 
@@ -13,12 +14,14 @@
            id="category_name" 
            placeholder="Enter category" 
            name="category_name" 
-           ng-model="category_name" 
-           ng-minlength="3">
+           data-ng-model="categories[url_param].category_name" 
+           data-ng-minlength="3">
   </div>
   
   <button class="btn btn-primary" 
-    data-ng-click="(myForm.category_name.$valid && myForm.category_name.$dirty)
-    ? details_categories(category_name) : error()">Save
-  </button>   
+    data-ng-click="(myForm.category_name.$valid)
+    ? details_categories(categories[url_param].category_name) : error()">
+    <span data-ng-show="url_param == undefined">Save</span>
+    <span data-ng-show="url_param != undefined">Update</span>
+  </button>
 </form>

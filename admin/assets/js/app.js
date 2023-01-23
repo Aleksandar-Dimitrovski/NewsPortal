@@ -1,7 +1,8 @@
 
 var app = angular.module("myApp", ["ngRoute"]);
-app.controller("myCtrl", function($scope, $http, $filter) {
+app.controller("myCtrl", function($scope, $http, $filter, $routeParams) {
   //Initialisation
+  $scope.url_param = $routeParams.id;
   $scope.alertDanger = false;
   $scope.alertSuccess = false;
   $scope.error = function () {
@@ -51,9 +52,9 @@ $http.get("model/select.php?table_name=customers") .then(function (response) {
   $scope.customers = response.data;
 })
 
-$scope.ads = [];
+$scope.ads_ads = [];
 $http.get("model/select.php?table_name=ads") .then(function (response) {
-  $scope.ads = response.data;
+  $scope.ads_ads = response.data;
 })
 
 
@@ -68,30 +69,36 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
   })
 }
 
- $scope.details_categories = function(category_name) 
+ $scope.details_categories = function(category_name, url_param) 
  {
   var objCategories=[];
+  var postTo = "insert";
+  var pk_value = -1;
+  if (url_param != undefined) {
+    postTo = "update";
+    pk_value = $scope.categories[url_param].categories_id;
+  }
+
   objCategories.push({
-    table_name: "categories",
-    "category_name":category_name
+    "category_name":category_name, "table_name": "categories", 
+    "pk_value":pk_value
   });
-  console.log(objCategories);
-  postData("insert", objCategories);
+  postData(postTo, objCategories);  
   $scope.alertDanger = false;
   $scope.alertSuccess = true;
  }
 
- $scope.details_news = function(news_title, news_content, news_datetime, news_image_path, category_id) 
+ $scope.details_news = function(news_title, news_content, news_datetime, news_image_path, category_id, url_param) 
  {
   var objNews=[];
   var news_datetime_format = $filter('date')(new Date(news_datetime),'yyyy-MM-dd H:m');
   objNews.push({
-    table_name: "news",
     "news_title":news_title,
     "news_content":news_content,
     "news_datetime":news_datetime_format,
     "news_image_path":news_image_path,
-    "category_id":category_id
+    "category_id":category_id,
+    "table_name":"news"
   });
   console.log(objNews);
   postData("insert", objNews);
@@ -99,17 +106,17 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
   $scope.alertSuccess = true;
  }
 
- $scope.details_media = function(media_title, media_type, media_datetime, media_image_path, category_id) 
+ $scope.details_media = function(media_title, media_type, media_datetime, media_image_path, category_id, url_param) 
  {
   var objMedia=[];
   var media_datetime_format = $filter('date')(new Date(media_datetime),'yyyy-MM-dd H:m');
   objMedia.push({
-    table_name: "media",
     "media_title":media_title,
     "media_type":media_type,
     "media_datetime":media_datetime_format,
     "media_image_path":media_image_path,
-    "category_id":category_id
+    "category_id":category_id,
+    "table_name": "media"
   });
   console.log(objMedia);
   postData("insert", objMedia);
@@ -117,19 +124,19 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
   $scope.alertSuccess = true;
  }
 
- $scope.details_ads = function(ads_customer_name, ads_starttime, ads_endtime, ads_price, customer_id) 
+ $scope.details_ads = function(ads_customer_name, ads_starttime, ads_endtime, ads_price, customer_id, url_param) 
  {
   var objAds=[];
   var ads_starttime_format = $filter('date')(new Date(ads_starttime),'yyyy-MM-dd H:m');
   var ads_endtime_format = $filter('date')(new Date(ads_endtime),'yyyy-MM-dd H:m');
 
   objAds.push({
-    table_name: "ads",
     "ads_customer_name":ads_customer_name,
     "ads_starttime":ads_starttime_format,
     "ads_endtime":ads_endtime_format,
     "ads_price":ads_price,
-    "customer_id":customer_id
+    "customer_id":customer_id,
+    "table_name": "ads"
   });
   console.log(objAds);
   postData("insert", objAds);
@@ -137,15 +144,15 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
   $scope.alertSuccess = true;
  }
 
- $scope.details_customers = function(customer_name, tel, email, address) 
+ $scope.details_customers = function(customer_name, tel, email, address, url_param) 
  {
   var objCustomers=[];
   objCustomers.push({
-    table_name: "customers",
     "customer_name":customer_name,
     "tel":tel,
     "email":email,
-    "address":address
+    "address":address,
+    "table_name": "customers"
   });
   console.log(objCustomers);
   postData("insert", objCustomers);

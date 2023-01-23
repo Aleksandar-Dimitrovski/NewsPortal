@@ -9,11 +9,19 @@ app.config(function($routeProvider){
     templateUrl : "view/details_categories.html",
     controller : "myCtrl"
   })
+  .when("/details_categories/:id", {
+    templateUrl : "view/details_categories.html",
+    controller : "myCtrl"
+  })
   .when("/news", {
     templateUrl : "view/news.html",
     controller : "myCtrl"
   })
   .when("/details_news", {
+    templateUrl : "view/details_news.html",
+    controller : "myCtrl"
+  })
+  .when("/details_news/:id", {
     templateUrl : "view/details_news.html",
     controller : "myCtrl"
   })
@@ -25,6 +33,10 @@ app.config(function($routeProvider){
     templateUrl : "view/details_media.html",
     controller : "myCtrl"
   })  
+  .when("/details_media/:id", {
+    templateUrl : "view/details_media.html",
+    controller : "myCtrl"
+  })
   .when("/customers", {
     templateUrl : "view/customers.html",
     controller : "myCtrl"
@@ -33,11 +45,19 @@ app.config(function($routeProvider){
     templateUrl : "view/details_customers.html",
     controller : "myCtrl"
   })
-  .when("/ads", {
-    templateUrl : "view/ads.html",
+  .when("/details_customers/:id", {
+    templateUrl : "view/details_customers.html",
+    controller : "myCtrl"
+  })
+  .when("/ads_ads", {
+    templateUrl : "view/ads_ads.html",
     controller : "myCtrl"
   })
   .when("/details_ads", {
+    templateUrl : "view/details_ads.html",
+    controller : "myCtrl"
+  })
+  .when("/details_ads/:id", {
     templateUrl : "view/details_ads.html",
     controller : "myCtrl"
   });

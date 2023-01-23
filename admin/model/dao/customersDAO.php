@@ -16,10 +16,10 @@ class CustomersDAO extends Customers
         $email = parent::getEmail();
         $address = parent::getAddress();
         
-        $columns_name = "customer_name, tel, email, address";
         $columns_value = "'$customer_name', '$tel', '$email', '$address'";
-        $this->db_conn->insertRow($this->table_name, $columns_name, $columns_value);
-    } 
+        //echo $columns_value;
+         $this->db_conn->callStoreProcedure("_insert_customers($columns_value)");
+    }
     public function deleteCustomers(){
         $customer_id = parent::getCustomer_id();
         $this->db_conn->deleteRow($this->table_name, "customer_id", $customer_id);
@@ -32,8 +32,6 @@ class CustomersDAO extends Customers
         $customer_id = parent::getCustomer_id();
     }
     public function selectCustomers(){
-        return $this->db_conn->selectRow($this->table_name);
+        return $this->db_conn->selectRowStoreProcedure("_select_customers()");
     }
 }
-
-?>

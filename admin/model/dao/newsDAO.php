@@ -17,9 +17,9 @@ class NewsDAO extends News
         $news_image_path = parent::getNews_image_path();
         $category_id = parent::getCategory_id();
         
-        $columns_name = "news_title, news_content, news_datetime, news_image_path, category_id";
         $columns_value = "'$news_title', '$news_content', '$news_datetime', '$news_image_path', $category_id";
-        $this->db_conn->insertRow($this->table_name, $columns_name, $columns_value);
+        $this->db_conn->callStoreProcedure("_insert_news($columns_value)");
+
     }
     public function deleteNews(){
         $news_id = parent::getNews_id();
@@ -33,8 +33,6 @@ class NewsDAO extends News
         $news_id = parent::getNews_id();
     }
     public function selectNews(){
-        return $this->db_conn->selectRow($this->table_name);
+        return $this->db_conn->selectRowStoreProcedure("_select_news()");
     }
 }
-
-?>

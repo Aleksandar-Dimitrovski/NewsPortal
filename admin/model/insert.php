@@ -1,6 +1,6 @@
 <?php
 $data = json_decode(file_get_contents("php://input"));
-var_dump($data);
+// var_dump($data);
 require_once "../../lib/database_class.php";
 //instance
 $objDB = new Database();
@@ -67,5 +67,3 @@ switch ($table_name){
     echo "nema tabela";
     break;
 }
- 
-?>
