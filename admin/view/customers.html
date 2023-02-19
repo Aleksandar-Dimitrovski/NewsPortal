@@ -10,6 +10,7 @@
               <th>tel</th>
               <th>email</th>
               <th>address</th>
+              <th>EDIT</th>
               <th>DELETE</th>
           </tr>
       </thead>
@@ -20,6 +21,13 @@
               <td>{{novacustomers.tel}}</td>
               <td>{{novacustomers.email}}</td>
               <td>{{novacustomers.address}}</td>
+              <td><a href="#!details_customers/{{$index}}">
+                <button type="button" 
+                class="btn btn-success" 
+                data-ng-click="getId($index)">
+                <i class="btn btn-success fa fa-pencil"></i>
+                </button>
+              </a></td> 
               <td><button type="button" 
                 class="btn btn-danger" 
                 data-ng-click="getId($index)" 

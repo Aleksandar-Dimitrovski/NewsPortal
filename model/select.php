@@ -33,9 +33,38 @@ switch($table_name){
             "news_content"=>$row["news_content"],
             "news_datetime"=>$row["news_datetime"],
             "news_image_path"=>$row["news_image_path"],
-            "category_id"=>$row["category_id"]);
+            "category_id"=>$row["category_id"],
+            "category_name" => $row["category_name"]);
         }
     break;
+
+    // -----kodot za kategorii-----
+    case "news&category":
+        require_once "dao/newsDAO.php";
+        $objNews = new NewsDAO($objDB);
+    
+        if (isset($_GET["category"])) {
+            $category = $_GET["category"];
+            $records = $objNews->selectNewsByCategory($category);
+        } else {
+            $records = $objNews->selectNews();
+        }
+    
+        foreach ($records as $row) {
+            if ($row["news_image_path"]==""){
+            $row["news_image_path"] = "noImage.jpg";
+            }
+            $data[] = array(
+            "news_id"=>$row["news_id"],
+            "news_title"=>$row["news_title"],
+            "news_content"=>$row["news_content"],
+            "news_datetime"=>$row["news_datetime"],
+            "news_image_path"=>$row["news_image_path"],
+            "category_id"=>$row["category_id"],
+            "category_name" => $row["category_name"]);
+        }
+        break;
+    // -----end-----
 
     case "media":
         require_once "dao/mediaDAO.php";
@@ -52,7 +81,8 @@ switch($table_name){
             "media_type"=>$row["media_type"],
             "media_datetime"=>$row["media_datetime"],
             "media_image_path"=>$row["media_image_path"],
-            "category_id"=>$row["category_id"]);
+            "category_id"=>$row["category_id"],
+            "category_name" => $row["category_name"]);
         }
     break;
 

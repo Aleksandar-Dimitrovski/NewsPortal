@@ -21,13 +21,13 @@
             <td>{{novanews.news_content}}</td>
             <td>{{novanews.news_datetime}}</td>
             <td><img ng-src="../uploads/{{novanews.news_image_path}}" alt=""></td>
-            <td><a href="#!details_news{{$index}}">
+            <td><a href="#!details_news/{{$index}}">
                 <button type="button" 
                     class="btn btn-success" 
                     data-ng-click="getId($index)">
                     <i class="btn btn-success fa fa-pencil"></i>
                 </button>
-                </a>
+                </a></td>
             </td> 
             <td><button type="button" 
                     class="btn btn-danger" 

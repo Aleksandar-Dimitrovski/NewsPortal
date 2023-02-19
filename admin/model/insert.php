@@ -59,7 +59,6 @@ switch ($table_name){
         $objAds->setAds_endtime($data[0]->ads_endtime);
         $objAds->setAds_price($data[0]->ads_price);
         $objAds->setCustomer_id($data[0]->customer_id);
-
         //DAO-crud=insertCategories
         $objAds->insertAds();
     break;

@@ -56,6 +56,28 @@ class Database
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 	}
+	// -------------ovaa funkcija ja insertiram za da prikazi category_name vo news i vo media-------
+	public function selectColumns($table_name, $columns)
+	{
+		$query = "SELECT $columns FROM $table_name";
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll();
+		return $result;
+	}
+
+	// -----funkcija selektiram po kategorija-----
+	public function selectNewsByCategory($category) {
+		$sql = "SELECT * FROM news INNER JOIN categories ON news.category_id = categories.category_id
+		WHERE categories.category_name = :category
+		ORDER BY news.news_datetime DESC LIMIT 16";
+		$stmt = $this->db_conn->prepare($sql);
+		$stmt->bindParam(':category', $category, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
 
 }
 

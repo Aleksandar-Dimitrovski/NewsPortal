@@ -15,6 +15,17 @@ app.controller("myCtrl", function($scope, $http, $filter, $routeParams) {
     $scope.getPosition = index;
   }
 
+
+
+  const hamburger = document.querySelector('.navbar-hamburger');
+  const navbarMenu = document.querySelector('.navbar-menu');
+  
+  hamburger.addEventListener('click', function() {
+    navbarMenu.classList.toggle('active');
+  });
+
+  
+
 //JSON Get data
 $scope.categories = [];
 $http.get("model/select.php?table_name=categories") .then(function (response) {
@@ -40,6 +51,19 @@ $scope.ads_ads = [];
 $http.get("model/select.php?table_name=ads") .then(function (response) {
   $scope.ads_ads = response.data;
 })
+
+  // -----kategorii vo news-----
+// $http.get("model/select.php?table_name=news&category=Makedonija").then(function(response) {
+//   $scope.news = response.data;
+// });
+
+// $http.get("model/select.php?table_name=news&category=Svet").then(function(response) {
+//   $scope.news = response.data;
+// });
+
+// $http.get("model/select.php?table_name=news&category=").then(function(response) {
+//   $scope.news = response.data;
+// });
 
  //Form Functions
 

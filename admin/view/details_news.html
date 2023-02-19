@@ -34,20 +34,6 @@
            data-ng-minlength="3">
   </div>
 
-  <span class="alert alert-danger" data-ng-show="myForm.news_image_path.$invalid">
-    Vnesete min 3 bukvi
-  </span>
-
-  <div class="mb-3 mt-3">
-    <label for="news_image_path" class="form-label">News image path:</label>
-    <input type="text" 
-           class="form-control" 
-           id="news_image_path" 
-           placeholder="Enter news image path" 
-           name="news_image_path" 
-           data-ng-model="news[url_param].news_image_path">
-  </div>
-
   <span class="alert alert-danger" data-ng-show="myForm.news_datetime.$invalid">
     Vnesete min 3 bukvi
   </span>
@@ -62,7 +48,21 @@
            data-ng-model="news[url_param].news_datetime">
   </div>
 
+  <span class="alert alert-danger" data-ng-show="myForm.news_image_path.$invalid">
+    Vnesete min 3 bukvi
+  </span>
 
+  <div class="mb-3 mt-3">
+    <label for="news_image_path" class="form-label">News image path:</label>
+    <input type="text" 
+           class="form-control" 
+           id="news_image_path" 
+           placeholder="Enter news image path" 
+           name="news_image_path" 
+           data-ng-model="news[url_param].news_image_path">
+  </div>
+
+  
   <span class="alert alert-danger" data-ng-show="myForm.Categories.$invalid">
     Vnesete min 3 bukvi
   </span>
@@ -86,7 +86,10 @@
     news[url_param].news_content, 
     news[url_param].news_datetime, 
     news[url_param].news_image_path, 
-    news[url_param].category_id) 
-    : error()">Save
+    news[url_param].category_id,
+    url_param) 
+    : error()">
+    <span data-ng-show="url_param == undefined">Save</span>
+    <span data-ng-show="url_param != undefined">Update</span>
   </button>   
 </form> 

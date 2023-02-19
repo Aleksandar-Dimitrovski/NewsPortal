@@ -10,16 +10,24 @@
               <th>ads_starttime</th>
               <th>ads_endtime</th>
               <th>ads_price</th>
+              <th>EDIT</th>
               <th>DELETE</th>
           </tr>
       </thead>
       <tbody>
-          <tr ng-repeat="novaads in ads_ads">
+          <tr ng-repeat="novaads in ads">
               <td>{{$index+1}}</td>
               <td>{{novaads.ads_customer_name}}</td>
               <td>{{novaads.ads_starttime}}</td>
               <td>{{novaads.ads_endtime}}</td>
               <td>{{novaads.ads_price}}</td>
+              <td><a href="#!details_ads/{{$index}}">
+                <button type="button" 
+                class="btn btn-successr" 
+                data-ng-click="getId($index)">
+                <i class="btn btn-success fa fa-pencil"></i>
+                </button>
+            </a></td> 
               <td><button type="button" 
                 class="btn btn-danger" 
                 data-ng-click="getId($index)" 

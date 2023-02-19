@@ -19,8 +19,11 @@
   </div>
   
   <button class="btn btn-primary" 
-    data-ng-click="(myForm.category_name.$valid)
-    ? details_categories(categories[url_param].category_name) : error()">
+    data-ng-click="
+    (myForm.category_name.$valid)
+    ? details_categories(
+      categories[url_param].category_name, 
+      url_param) : error()">
     <span data-ng-show="url_param == undefined">Save</span>
     <span data-ng-show="url_param != undefined">Update</span>
   </button>

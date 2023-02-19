@@ -17,6 +17,12 @@ app.config(function($routeProvider){
     templateUrl : "view/news.html",
     controller : "myCtrl"
   })
+  // -----kodot za kategoriite-----
+  .when("/news/:category", {
+    templateUrl : "view/news.html",
+    controller : "myCtrl"
+  })
+
   .when("/details_news", {
     templateUrl : "view/details_news.html",
     controller : "myCtrl"

@@ -1,9 +1,11 @@
-<div class="alert alert-danger" ng-show="alertDanger">Neuspesno</div>
-<div class="alert alert-success" ng-show="alertSuccess">Uspesno</div>
+<div class="alert alert-danger" data-ng-show="alertDanger">Neuspesno</div>
+<div class="alert alert-success" data-ng-show="alertSuccess">Uspesno</div>
+{{url_param}} {{customers[url_param].customer_name}}
+
 
 <form name="myForm">
 
-  <span class="alert alert-danger" ng-show="myForm.customer_name.$invalid">
+  <span class="alert alert-danger" data-ng-show="myForm.customer_name.$invalid">
     Vnesete min 3 bukvi
   </span>
 
@@ -14,11 +16,11 @@
            id="customer_name" 
            placeholder="Enter customer`s name" 
            name="customer_name" 
-           ng-model="customer_name" 
-           ng-minlength="3">
+           data-ng-model="customers[url_param].customer_name" 
+           data-ng-minlength="3">
   </div>
 
-  <span class="alert alert-danger" ng-show="myForm.tel.$invalid">
+  <span class="alert alert-danger" data-ng-show="myForm.tel.$invalid">
     Vnesete min 3 bukvi
   </span>
 
@@ -29,11 +31,11 @@
            id="tel" 
            placeholder="Enter tel" 
            name="tel" 
-           ng-model="tel" 
-           ng-minlength="3">
+           data-ng-model="customers[url_param].tel" 
+           data-ng-minlength="3">
   </div>
 
-  <span class="alert alert-danger" ng-show="myForm.email.$invalid">
+  <span class="alert alert-danger" data-ng-show="myForm.email.$invalid">
     Vnesete min 3 bukvi
   </span>
 
@@ -44,11 +46,11 @@
            id="email" 
            placeholder="Enter email" 
            name="email" 
-           ng-model="email" 
-           ng-minlength="3">
+           data-ng-model="customers[url_param].email" 
+           data-ng-minlength="3">
   </div>
 
-  <span class="alert alert-danger" ng-show="myForm.address.$invalid">
+  <span class="alert alert-danger" data-ng-show="myForm.address.$invalid">
     Vnesete min 3 bukvi
   </span>
 
@@ -59,15 +61,23 @@
            id="address" 
            placeholder="Enter address" 
            name="address" 
-           ng-model="address" 
-           ng-minlength="3">
+           data-ng-model="customers[url_param].address" 
+           data-ng-minlength="3">
   </div>  
   
   <button class="btn btn-primary" 
-    ng-click="(myForm.customer_name.$valid && myForm.customer_name.$dirty) &&
-    (myForm.tel.$valid && myForm.tel.$dirty) &&
-    (myForm.email.$valid && myForm.email.$dirty) &&
-    (myForm.address.$valid && myForm.address.$dirty) 
-    ? details_customers(customer_name, tel, email, address) : error()">Save
+    data-ng-click="
+    ((myForm.customer_name.$valid) &&
+    (myForm.tel.$valid) &&
+    (myForm.email.$valid) &&
+    (myForm.address.$valid)) 
+    ? details_customers(
+      customers[url_param].customer_name, 
+      customers[url_param].tel, 
+      customers[url_param].email, 
+      customers[url_param].address, 
+      url_param) : error()">
+    <span data-ng-show="url_param == undefined">Save</span>
+    <span data-ng-show="url_param != undefined">Update</span> 
   </button>   
 </form>

@@ -1,8 +1,11 @@
-<div class="col-sm-3 col-md-4"></div>
-<!--left cont.-->
+
+
+
+<!-- <div class="col-sm-3 col-md-4"></div>
+
 <div class="col-sm-9">         
   <h3>News</h3>
-  <table class="table table-bordered border-primary">
+  <table class="table table-bordered border-danger">
     <thead>
         <tr>
             <th>Reden broj</th>
@@ -24,6 +27,217 @@
         </tr>
     </tbody>
   </table>      
-</div>
+</div> -->
+
+
+
+<!-- ------one column------ -->
+  <!-- <div class="container my-5">
+    <h3 class="text-center">News</h3>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row" ng-repeat="novanews in news">
+          <div class="col-sm-12 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{novanews.news_title}}</h5>
+                <p class="card-text">{{novanews.news_content}}</p>
+                <p class="card-text text-muted">{{novanews.news_datetime}}</p>
+              </div>
+              <img ng-src="./uploads/{{novanews.news_image_path}}" alt="" class="card-img-top">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+
+<!-- -----two columns----- -->
+  <!-- <div class="container my-5">
+    <h3 class="text-center">News</h3>
+    <div class="row">
+      <div class="col-md-6" ng-repeat="novanews in news">
+        <div class="card mb-3">
+          <img ng-src="./uploads/{{novanews.news_image_path}}" alt="" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{novanews.news_title}}</h5>
+            <p class="card-text">{{novanews.news_content}}</p>
+            <p class="card-text text-muted">{{novanews.news_datetime}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
   
+  <!-- -----four columns----- -->
+  <!-- <div class="container my-5">
+    <h3 class="text-center">News</h3>
+    <div class="row">
+      <div class="col-sm-6 col-md-3" ng-repeat="novanews in news">
+        <div class="card mb-3">
+          <img ng-src="./uploads/{{novanews.news_image_path}}" alt="" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{novanews.news_title}}</h5>
+            <p class="card-text">{{novanews.news_content}}</p>
+            <p class="card-text text-muted">{{novanews.news_datetime}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+  <!-- -----four colums, not good height----- -->
+  <!-- <div class="container my-5">
+    <h3 class="text-center">News</h3>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row" ng-repeat="novanews in news">
+          <div class="col-sm-12 mb-3">
+            <div class="card h-100">
+              <img ng-src="./uploads/{{novanews.news_image_path}}" alt="" class="card-img-top" style="height: 200px;">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{novanews.news_title}}</h5>
+                <p class="card-text flex-grow-1">{{novanews.news_content}}</p>
+                <p class="card-text text-muted">{{novanews.news_datetime}}</p>
+                <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Read More</button>
+              </div>
+            </div> -->
+
+            <!-- Modal -->
+
+            <!-- <div class="modal fade" id="newsModal{{$index}}" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="newsModalLabel">{{novanews.news_title}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <img ng-src="./uploads/{{novanews.news_image_path}}" alt="" class="mx-auto d-block mb-3" style="max-height: 300px;">
+                    <p>{{novanews.news_content}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+  
+
+
+<!-- -----2 colums and a modal----- -->
+<!-- <div class="container my-5">
+  <h3 class="text-center">News</h3>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-12" ng-repeat="novanews in news | limitTo: 12">
+          <div class="card mb-3">
+            <img ng-src="./uploads/{{novanews.news_image_path}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{novanews.news_title}}</h5>
+              <p class="card-text">{{novanews.news_content | limitTo: 100}}...</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsModal{{novanews.news_id}}">Read More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-12" ng-repeat="novanews in news | limitTo: 12:12">
+          <div class="card mb-3">
+            <img ng-src="./uploads/{{novanews.news_image_path}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{novanews.news_title}}</h5>
+              <p class="card-text">{{novanews.news_content | limitTo: 100}}...</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsModal{{novanews.news_id}}">Read More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- News Modal -->
+<!-- <div class="modal fade" id="newsModal{{novanews.news_id}}" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newsModalLabel">{{novanews.news_title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img ng-src="./uploads/{{novanews.news_image_path}}" class="img-fluid mb-3" alt="...">
+        <p>{{novanews.news_content}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> --> 
+
+
+<div class="container my-5">
+  <h3 class="text-center">News</h3>
+  <div class="row">
+    <div class="col-md-6" ng-repeat="novanews in news | limitTo: 16">
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img ng-src="./uploads/{{novanews.news_image_path}}" class="card-img" alt="{{novanews.news_title}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{novanews.news_title}}</h5>
+              <p class="card-text">{{novanews.news_content | limitTo: 120}}...</p>
+              <p class="card-text text-muted">{{novanews.news_datetime}}</p>
+              <p class="card-text">Category: {{novanews.category_name}}</p>
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#newsModal-{{novanews.news_id}}">Повеќе</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="newsModal-{{novanews.news_id}}" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel-{{novanews.news_id}}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newsModalLabel-{{novanews.news_id}}">{{novanews.news_title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img ng-src="./uploads/{{novanews.news_image_path}}" class="img-fluid mb-3" alt="{{novanews.news_title}}">
+        <p>{{novanews.news_content}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

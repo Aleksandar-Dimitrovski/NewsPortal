@@ -49,8 +49,8 @@ app.config(function($routeProvider){
     templateUrl : "view/details_customers.html",
     controller : "myCtrl"
   })
-  .when("/ads_ads", {
-    templateUrl : "view/ads_ads.html",
+  .when("/ads", {
+    templateUrl : "view/ads.html",
     controller : "myCtrl"
   })
   .when("/details_ads", {
