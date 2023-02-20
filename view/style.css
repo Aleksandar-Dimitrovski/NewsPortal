@@ -104,6 +104,7 @@ footer {
   flex-direction: column;
   height: 100%;
   margin-bottom: 16px !important;
+  background-color: #f1f1f1;
 }
 
 .card-body {
@@ -114,4 +115,77 @@ footer {
   height: auto;
   width: 100%;
   object-fit: cover;
+}
+
+/* -----media carousel start here----- */
+#mediaCarousel .carousel-item {
+  height: 540px;
+}
+
+#mediaCarousel .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  max-width: 100%; /* added */
+}
+
+#mediaCarousel .carousel-control-prev,
+#mediaCarousel .carousel-control-next {
+  width: 7%;
+  font-size: 22rem !important;
+  font-weight: bold;
+}
+
+#mediaCarousel .carousel-indicators {
+  bottom: 0;
+  margin: 0;
+}
+
+@media (min-width: 576px) {
+  #mediaCarousel .carousel-item {
+    height: 678px;
+  }
+}
+@media (min-width: 992px) {
+  #mediaCarousel {
+    margin-left: 240px !important;
+    margin-right: 0 px !important;
+    width: 100%;
+    object-fit: cover;
+    max-width: 100%; 
+
+  }
+}
+
+
+#mediaCarousel .carousel-caption {
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+}
+
+#mediaCarousel .carousel-caption h5 {
+  color: white;
+  font-size: 27px;
+  margin: 0;
+}
+
+#mediaCarousel .carousel-image {
+  margin: 0 auto;
+}
+
+#mediaCarousel {
+  margin: 42px auto;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+.media-heading {
+  font-size: 36px;
+  margin-left: 240px;
+  font-weight: bold;
+  margin-top: 20px;
 }

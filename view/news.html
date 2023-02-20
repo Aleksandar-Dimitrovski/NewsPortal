@@ -9,6 +9,12 @@
     <thead>
         <tr>
             <th>Reden broj</th>
+            <th>
+              <select class="form-select" ng-model="selectedCategory">
+                <option value="">Select category</option>
+                <option ng-repeat="category in categories" value="{{category.category_name}}">{{category.category_name}}</option>
+              </select>
+            </th>
             <th>news_title</th>
             <th>news_content</th>
             <th>news_datetime</th>
@@ -17,8 +23,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="novanews in news">
+        <tr data-ng-repeat="novanews in news | filter:{category_name:selectedCategory}">
             <td>{{$index+1}}</td>
+            <td>{{novanews.category_name}}</td>
             <td>{{novanews.news_title}}</td>
             <td>{{novanews.news_content}}</td>
             <td>{{novanews.news_datetime}}</td>
@@ -28,6 +35,55 @@
     </tbody>
   </table>      
 </div> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-center mb-3">
+        <form class="d-flex align-items-center">
+          <label class="me-2 text-light" for="categorySelect">Одбери категорија</label>
+          <select class="form-select form-select-sm" id="categorySelect" ng-model="selectedCategory">
+            <option value="">Сите категории</option>
+            <option ng-repeat="category in categories" value="{{category.category_name}}">{{category.category_name}}</option>
+          </select>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-ng-repeat="novanews in news | filter:{category_name:selectedCategory}">
+      <div class="card h-100">
+        <img class="card-img-top img-fluid" src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{novanews.news_title}}</h5>
+          <p class="card-text">{{novanews.news_content}}</p>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
+        </div>
+      </div>
+      <div class="modal fade" id="newsModal{{$index}}" tabindex="-1" aria-labelledby="newsModalLabel{{$index}}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newsModalLabel{{$index}}">{{novanews.news_title}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>{{novanews.news_content}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -193,7 +249,7 @@
 </div> --> 
 
 
-<div class="container my-5">
+<!-- <div class="container my-5">
   <h3 class="text-center">News</h3>
   <div class="row">
     <div class="col-md-6" ng-repeat="novanews in news | limitTo: 16">
@@ -215,11 +271,11 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- Modal -->
-<div class="modal fade" id="newsModal-{{novanews.news_id}}" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel-{{novanews.news_id}}" aria-hidden="true">
+<!-- <div class="modal fade" id="newsModal-{{novanews.news_id}}" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel-{{novanews.news_id}}" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -237,7 +293,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
