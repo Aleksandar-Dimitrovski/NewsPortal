@@ -10,16 +10,13 @@
         <tr>
             <th>Reden broj</th>
             <th>
-              <select class="form-select" ng-model="selectedCategory">
-                <option value="">Select category</option>
-                <option ng-repeat="category in categories" value="{{category.category_name}}">{{category.category_name}}</option>
-              </select>
+              category_name
             </th>
             <th>news_title</th>
             <th>news_content</th>
             <th>news_datetime</th>
             <th>news_image_path</th>
-            
+            th
         </tr>
     </thead>
     <tbody>
@@ -29,7 +26,7 @@
             <td>{{novanews.news_title}}</td>
             <td>{{novanews.news_content}}</td>
             <td>{{novanews.news_datetime}}</td>
-            <td><img ng-src="./uploads/{{novanews.news_image_path}}" alt=""></td>       
+            <td><img ng-src="./uploads/{{novanews.news_image_path}}" alt=""></td>    
 
         </tr>
     </tbody>
@@ -41,18 +38,21 @@
   <div class="row">
     <div class="col-12">
       <div class="d-flex justify-content-center mb-3">
+
         <form class="d-flex align-items-center">
           <label class="me-2 text-light" for="categorySelect">Одбери категорија</label>
-          <select class="form-select form-select-sm" id="categorySelect" ng-model="selectedCategory">
+          <select class="form-select form-select-sm" id="categorySelect" data-ng-model="selectedCategory">
             <option value="">Сите категории</option>
             <option ng-repeat="category in categories" value="{{category.category_name}}">{{category.category_name}}</option>
           </select>
         </form>
+
       </div>
     </div>
+    
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-ng-repeat="novanews in news | filter:{category_name:selectedCategory}">
       <div class="card h-100">
-        <img class="card-img-top img-fluid" src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
+        <img class="card-img-top img-fluid" ng-src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{novanews.news_title}}</h5>
           <p class="card-text">{{novanews.news_content}}</p>

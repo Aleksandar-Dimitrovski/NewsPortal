@@ -1,7 +1,7 @@
 <div class="col-sm-3 col-md-4"></div>
 <!--left cont.-->
 <div class="col-sm-12">         
-  <h3>News</h3>
+  <h2>Вести</h2>
   <table class="table table-bordered border-primary">
     <thead>
         <tr>
@@ -51,13 +51,13 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <h3>{{getPosition}}:- Dali ste sigurni deka sakate da go izbrisite naslovot: {{news[getPosition].news_title}}</h3>
+              <h3>{{getPosition}}:- Дали сте сигурни дека сакате да го избришите насловот: {{news[getPosition].news_title}}</h3>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-danger" 
                   data-ng-click="deleteRow('news',news[getPosition].news_id)"
-                  data-bs-dismiss="modal">Potvrdi</button>
-              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Otkazi</button>
+                  data-bs-dismiss="modal">Потврди</button>
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Откажи</button>
           </div>
       </div>
   </div>

@@ -26,8 +26,10 @@
  <!-- <nav class="navbar navbar-expand-lg first-section justify-content-between"> -->
 
 
-  <div class="navbar navbar-expand-lg first-section justify-content-between">
-    <div class="logo">42ВЕСТИ</div>
+
+
+   <div class="navbar navbar-expand-lg first-section justify-content-between">
+    <div class="vestilogo">42ВЕСТИ</div>
     <div class="search-bar">
       <input type="text" placeholder="Search">
       <button class="btn btn-secondary" style="background-color: #206836; color: white;">Search</button>
@@ -35,30 +37,18 @@
     <div class="navbar-hamburger">
       <i class="fas fa-bars"></i>
     </div>
-  </div>
+  </div> 
+
+  
+
   
   <div class="nav-menu">
     <ul>
-      <li>  <form class="d-flex align-items-center">
-        <label class="me-2 text-light" for="categorySelect">Категорија</label>
-        <select class="form-select form-select-sm" id="categorySelect" ng-model="selectedCategory">
-          <option value="">Сите категории</option>
-          <option ng-repeat="category in categories" value="{{category.category_name}}">{{category.category_name}}</option>
-        </select>
-      </form></li>
-      <li><a href="#">Почетна</a></li>
-      <li><a href="#!news">Македонија</a></li>
-      <li><a href="#!news">Свет</a></li>
-      <li><a href="#!news">Економија</a></li>
-      <li><a href="#!news">Здравје</a></li>
-      <li><a href="#!news">Забава</a></li>
-      <li><a href="#!news">Наука</a></li>
-      <li><a href="#!news">Техологија</a></li>
+      <li><a href="#!categories">Почетна</a></li>
+      <li><a href="#!news">Категории</a></li>
       <li><a href="#!media">Фото на денот</a></li>
     </ul>
   </div>
-
-
 
    <div class="container-fluid">
     <div class="row">
@@ -67,6 +57,7 @@
    </div>
 
 
+   
 
   <!-- Remove the container if you want to extend the Footer to full width. -->
   <!-- <div class="container my-5"> -->
@@ -90,7 +81,7 @@
       <!-- Copyright -->
       <div class="text-center text-white p-3" style="background-color: #262829;">
         © 2023 Copyright:
-        <a class="text-white" href="https://вести.мк/">вести.мк</a>
+        <a class="text-white" href="#!categories">42вести.мк</a>
       </div>
       <!-- Copyright -->
     </footer>

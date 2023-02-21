@@ -5,14 +5,21 @@
   height: 107px;
   color: #ffffff;
   margin: 0;
-  /* padding-left: 240px;
-  padding-right: 240px; */
 }
 
-.navbar .logo {
-  padding: 33px;
+.navbar .vestilogo {
+  /* padding: 33px; */
   font-size: 42px;
   font-weight: bold;
+  color: white !important;
+  text-decoration: none;
+  /* border: rgb(172, 155, 155) 2px groove; */
+  margin-left: 33px;  
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar .vestilogo:hover {
+  transform: scale(1.2);
 }
 
 .navbar .search-bar {
@@ -41,6 +48,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  letter-spacing: 2px;
+  font-size: 20px;
 }
 
 .nav-menu ul {
@@ -48,6 +57,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 135px; /* add more space between menu items */
+
 }
 
 .nav-menu ul li {
@@ -156,8 +167,6 @@ footer {
 
   }
 }
-
-
 #mediaCarousel .carousel-caption {
   background-color: rgba(0,0,0,0.5);
   padding: 10px;
@@ -189,3 +198,171 @@ body {
   font-weight: bold;
   margin-top: 20px;
 }
+/* -----index page----- */
+body {
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  margin-left: 240px;
+  margin-right: 240px;
+}
+
+/* -----news carousel start----- */
+
+#newsCarousel .carousel-item {
+  height: 540px;
+  }
+  
+  #newsCarousel .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  max-width: 100%; /* added */
+  }
+  
+  #newsCarousel .carousel-control-prev,
+  #newsCarousel .carousel-control-next {
+  width: 7%;
+  font-size: 22rem !important;
+  font-weight: bold;
+  }
+  
+  #newsCarousel .carousel-indicators {
+  bottom: 0;
+  margin: 0;
+  }
+  
+  @media (min-width: 576px) {
+  #newsCarousel .carousel-item {
+  height: 678px;
+  }
+  }
+  
+  @media (min-width: 992px) {
+  #newsCarousel {
+  margin-left: 240px !important;
+  margin-right: 240px !important;
+  width: 100%;
+  /* object-fit: cover; */
+  /* max-width: 100%; */
+  }
+  }
+  
+  #newsCarousel .carousel-caption {
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+  }
+  
+  #newsCarousel .carousel-caption h5 {
+  color: white;
+  font-size: 27px;
+  margin: 0;
+  }
+  
+  #newsCarousel .carousel-image {
+  margin: 0 auto;
+  }
+  
+  #newsCarousel {
+  margin: 42px auto;
+  font-size: 2rem;
+  font-weight: bold;
+  }
+  
+/* ------------------------------------ */
+  .news-heading {
+  font-size: 36px;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 20px;
+  }
+  @media (min-width: 768px) {
+    .news-heading {
+      margin-left: 0;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .news-heading {
+      margin-left: 240px;
+    }
+  }
+  /* ---------------------------------- */
+
+  body {
+  background-color: #e6e6e6;
+  }
+
+  /* -----news carousel end----- */
+
+  /* -----news devider start----- */
+  .divider {
+    height: 42px;
+    background-color: #1f1f1f;
+    margin-top: 55px;
+    margin-bottom: 42px;
+  }
+  /* -----news devider end----- */
+
+  /* <!-- -----news sesection start----- ----------------------------------> */
+  .news-container {
+    /* Add any additional CSS properties here */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  @media (min-width: 992px) {
+    .news-container {
+    margin-left: 240px;
+    margin-right: 240px;
+    /* add any additional styles here */
+    }
+  }
+  
+  .news-container .card {
+    /* Additional styles for the news card */
+    border: none;
+  }
+  .news-container .card-title {
+    /* Additional styles for the news title */
+    font-weight: bold;
+  }
+  .news-container .card-text {
+    /* Additional styles for the news content */
+    color: #555;
+    font-size: 14px;
+  }
+  .news-container .btn-primary {
+    /* Additional styles for the "Прочитај повеќе" button */
+    background-color: #007bff;
+    border: none;
+  }
+  .news-container .modal {
+    /* Additional styles for the news modal */
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .news-container .modal-content {
+    /* Additional styles for the news modal content */
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .news-container .modal-header {
+    /* Additional styles for the news modal header */
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+  }
+  .news-container .modal-title {
+    /* Additional styles for the news modal title */
+    font-weight: bold;
+  }
+  .news-container .btn-secondary {
+    /* Additional styles for the "Затвори" button */
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  /* <!-- news section end ------------------------------> */
