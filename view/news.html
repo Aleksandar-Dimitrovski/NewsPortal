@@ -50,15 +50,16 @@
       </div>
     </div>
     
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-ng-repeat="novanews in news | filter:{category_name:selectedCategory}">
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-ng-repeat="novanews in news | filter:{category_name:selectedCategory} | orderBy:'-news_id'">
       <div class="card h-100">
-        <img class="card-img-top img-fluid" ng-src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{novanews.news_title}}</h5>
-          <p class="card-text">{{novanews.news_content}}</p>
-        </div>
+          <div class="card-category">{{novanews.category_name}}</div>
+          <img class="card-img-top img-fluid" ng-src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{novanews.news_title}}</h5>
+            <p class="card-text">{{novanews.news_content | limitTo:300}}...</p>
+          </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
         </div>
       </div>
       <div class="modal fade" id="newsModal{{$index}}" tabindex="-1" aria-labelledby="newsModalLabel{{$index}}" aria-hidden="true">

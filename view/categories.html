@@ -29,7 +29,7 @@
 
   <div id="newsCarousel" class="carousel slide mx-auto" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div ng-repeat="novanews in news" class="carousel-item" ng-class="{active: $index === 0}">
+      <div ng-repeat="novanews in news | orderBy:'-news_id'" class="carousel-item" ng-class="{active: $index === 0}">
         <img ng-src="./uploads/{{novanews.news_image_path}}" class="d-block w-100 carousel-image" alt="{{novanews.news_title}}">
         <div class="carousel-caption d-none d-md-block">
           <h5>{{novanews.news_title}}</h5>
@@ -56,7 +56,7 @@
 
 <!-- -----news sesection start----- -->
 <div class="row row-cols-1 row-cols-md-3 g-4 news-container">
-  <div class="col mb-4" data-ng-repeat="novanews in news | filter:{category_name:selectedCategory}">
+  <div class="col mb-4" data-ng-repeat="novanews in news | orderBy:'-news_id'">
     <div class="card h-100">
       <img class="card-img-top img-fluid" ng-src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
       <div class="card-body">
@@ -65,7 +65,7 @@
         <p class="card-text">{{novanews.news_content | limitTo:300}} {{novanews.news_content.length > 300 ? '...' : ''}}</p>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
       </div>
     </div>
     <div class="modal fade" id="newsModal{{$index}}" tabindex="-1" aria-labelledby="newsModalLabel{{$index}}" aria-hidden="true">
@@ -89,7 +89,6 @@
 
 
 
-
 <!-- news section end -->
 
 <!-- -----divider----- -->
@@ -105,7 +104,7 @@
 
   <div id="mediaCarousel" class="carousel slide mx-auto" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div ng-repeat="novamedia in media" class="carousel-item" ng-class="{active: $index === 0}">
+      <div ng-repeat="novamedia in media  | orderBy:'-news_id'" class="carousel-item" ng-class="{active: $index === 0}">
         <img ng-src="./uploads/{{novamedia.media_image_path}}" class="d-block w-100 carousel-image" alt="{{novamedia.media_title}}">
         <div class="carousel-caption d-none d-md-block">
           <h5>{{novamedia.media_title}}</h5>
