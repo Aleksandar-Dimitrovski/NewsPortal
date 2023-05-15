@@ -9,6 +9,8 @@ private $address;
 //construct
 public function __construct(){
 }
+
+//Setters
 public function setCustomer_id($customer_id){
     $this->customer_id=$customer_id;
 }
@@ -24,6 +26,7 @@ public function setEmail($email){
 public function setAddress($address){
     $this->address=$address;
 }
+//Getters
 public function getCustomer_id(){
     return $this->customer_id;
 }
@@ -40,5 +43,3 @@ public function getAddress(){
     return $this->address;
 }
 }
-
-?>

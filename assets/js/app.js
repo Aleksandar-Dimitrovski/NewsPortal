@@ -15,16 +15,28 @@ app.controller("myCtrl", function($scope, $http, $filter, $routeParams) {
     $scope.getPosition = index;
   }
 
-
-
-  const hamburger = document.querySelector('.navbar-hamburger');
-  const navbarMenu = document.querySelector('.navbar-menu');
   
-  hamburger.addEventListener('click', function() {
-    navbarMenu.classList.toggle('active');
-  });
-
   
+
+  // function filterByCategory(category_name) {
+  //   if (category_name) {
+  //     $scope.filteredMedia = $scope.media.filter(function(item) {
+  //       return item.media_category === category_name;
+  //     });
+  //   } else {
+  //     $scope.filteredMedia = $scope.media;
+  //   }
+  //   $scope.$apply(); 
+  // }
+  
+  
+
+  // const hamburger = document.querySelector('.navbar-hamburger');
+  // const navbarMenu = document.querySelector('.navbar-menu');
+  
+  // hamburger.addEventListener('click', function() {
+  //   navbarMenu.classList.toggle('active');
+  // });
 
 //JSON Get data
 $scope.categories = [];
@@ -47,7 +59,7 @@ $http.get("model/select.php?table_name=customers") .then(function (response) {
   $scope.customers = response.data;
 })
 
-$scope.ads_ads = [];
+$scope.ads = [];
 $http.get("model/select.php?table_name=ads") .then(function (response) {
   $scope.ads_ads = response.data;
 })
@@ -67,13 +79,14 @@ $http.get("model/select.php?table_name=ads") .then(function (response) {
 
  //Form Functions
 
- function postData(file_name, dataObjPost) {
-  $http({
-    method: "POST",
-    url: "model/" + file_name + ".php",
-    data: dataObjPost
-  })
-}
+//  function postData(file_name, dataObjPost) {
+//   $http({
+//     method: "POST",
+//     url: "model/" + file_name + ".php",
+//     data: dataObjPost
+//   })
+// }
+
 //Update & Insert
  $scope.details_categories = function (category_name, url_param) {
   var objCategories=[]; 

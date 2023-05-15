@@ -29,7 +29,7 @@ class Media
     public function setMedia_image_path($media_image_path){
         $this->media_image_path=$media_image_path;
     }
-    //Getters    
+    //Getters
     public function getMedia_id(){
         return $this->media_id;
     }

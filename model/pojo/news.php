@@ -9,6 +9,7 @@ class News
 
     public function __construct(){
     }
+    //Setters
     public function setNews_id($news_id){
         $this->news_id=$news_id;
     }
@@ -24,7 +25,7 @@ class News
     public function setCategory_id($category_id){
         $this->category_id=$category_id;
     }
-    
+    //Getters
     public function getNews_id(){
         return $this->news_id;
     }
@@ -41,5 +42,3 @@ class News
         return $this->category_id;
     }
   }
-
-?>

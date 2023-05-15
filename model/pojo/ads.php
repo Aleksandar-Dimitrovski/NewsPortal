@@ -11,6 +11,8 @@ private $customer_id;
 //construct
 public function __construct(){
 }
+
+//Setters
 public function setAds_id($ads_id){
     $this->ads_id=$ads_id;
 }
@@ -29,6 +31,7 @@ public function setAds_price($ads_price){
 public function setCustomer_id($customer_id){
     $this->customer_id=$customer_id;
 }
+//Getters
 public function getAds_id(){
     return $this->ads_id;
 }
@@ -49,5 +52,3 @@ public function getCustomer_id(){
 }
 
 }
-
-?>

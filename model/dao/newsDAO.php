@@ -13,8 +13,13 @@ class NewsDAO extends News
 
     //methods CRUD
     public function selectNews(){
-        return $this->db_conn->selectColumns("news INNER JOIN categories ON news.category_id = categories.category_id", 
-        "news.news_id, news.news_title, news.news_content, news.news_datetime, news.news_image_path, categories.category_id, categories.category_name");
+        return $this->db_conn->selectColumns("news INNER JOIN categories ON news.category_id = categories.category_id",
+        "news.news_id, news.news_title,
+         news.news_content,
+         news.news_datetime,
+         news.news_image_path,
+         categories.category_id,
+         categories.category_name");
     }
     
     // -----funkcijata za prikazuvanje news spored category-----
@@ -22,5 +27,3 @@ class NewsDAO extends News
         return $this->db_conn->selectNewsByCategory($category);
     }
 }
-
-?>

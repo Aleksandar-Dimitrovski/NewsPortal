@@ -17,7 +17,6 @@ $scope.getPosition = -1;
 		$scope.getPosition = index;
 	}
 
-
 $scope.deleteRow = function (table_name, pk_value) {
   var objDelete = [];
   objDelete.push(
@@ -29,7 +28,6 @@ $scope.deleteRow = function (table_name, pk_value) {
   postData("delete", objDelete);
 }
 //delete text from zoom chat end here Cas28
-
 
 //JSON
 $scope.categories = [];

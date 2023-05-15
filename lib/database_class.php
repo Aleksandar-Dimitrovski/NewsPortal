@@ -2,13 +2,13 @@
 class Database
 {
 	//class attributes
-	private $servername 	= 	"localhost";//127.0.0.1
+	private $servername 	= 	"localhost";
 	private $username 		= 	"root";
 	private $password 		= 	"";
 	private $database_name	=	"dimitrovski_project";
 	private $conn 			=	null;
 	//construct
-	public function __construct(){
+	public function __construct() {
 	
 		try {
 		  $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database_name", $this->username, $this->password);
@@ -77,8 +77,4 @@ class Database
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
-
 }
-
-?>
