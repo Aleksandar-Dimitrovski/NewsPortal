@@ -1,22 +1,45 @@
 <!-- -----news carousel start----- -->
-<div class="container-fluid col-xl-10">        
+<div class="container-fluid col-xl-10">
   <h2 class="newsCarousel-heading">Најнови вести</h2>
 
-  <div class="carousel slide mx-auto" id="newsCarousel" data-bs-ride="carousel">
+  <div
+    class="carousel slide mx-auto"
+    id="newsCarousel"
+    data-bs-ride="carousel"
+    data-bs-interval="2700"
+  >
     <div class="carousel-inner">
-      <div ng-repeat="novanews in news | orderBy:'-news_id'" class="carousel-item" ng-class="{active: $index === 0}">
-        <img data-ng-src="./uploads/{{novanews.news_image_path}}" class="d-block mx-auto carousel-image" alt="{{novanews.news_title}}">
+      <div
+        ng-repeat="novanews in news | orderBy:'-news_id'"
+        class="carousel-item"
+        ng-class="{active: $index === 0}"
+      >
+        <img
+          data-ng-src="./uploads/{{novanews.news_image_path}}"
+          class="d-block mx-auto carousel-image"
+          alt="{{novanews.news_title}}"
+        />
         <div class="carousel-caption d-none d-md-block">
           <h5>{{novanews.news_title}}</h5>
           <p>{{novanews.news_datetime}}</p>
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" role="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+    <button
+      class="carousel-control-prev"
+      role="button"
+      data-bs-target="#newsCarousel"
+      data-bs-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" role="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+    <button
+      class="carousel-control-next"
+      role="button"
+      data-bs-target="#newsCarousel"
+      data-bs-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -24,42 +47,85 @@
 </div>
 <!-- -----news carousel end----- -->
 
-
 <!-- -----divider----- -->
-<hr class="divider">
+<hr class="divider" />
 <!-- -----divider----- -->
 
 <!-- -----news sesection start----- -->
-<div class="container-fluid col-xl-10">        
-
-<div class="row row-cols-1 row-cols-md-3 g-4 news-container">
-  <div class="col mb-2" ng-repeat="novanews in news | orderBy:'-news_id' | limitTo:15">
-    <div class="card h-100">
-      <img class="card-img-top img-fluid" data-ng-src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title-category_name">{{novanews.category_name}}</h5>
-        <h5 class="card-title" data-bs-target="#newsModal{{$index}}">{{novanews.news_title}}</h5>
-        <p class="card-text">{{novanews.news_content | limitTo:132}} {{novanews.news_content.length > 132 ? '...' : ''}}</p>
+<div class="container-fluid col-xl-10">
+  <div class="row row-cols-1 row-cols-md-3 g-4 news-container">
+    <div
+      class="col mb-2"
+      ng-repeat="novanews in news | orderBy:'-news_id' | limitTo:15"
+    >
+      <div class="card h-100">
+        <img
+          class="card-img-top img-fluid"
+          data-ng-src="./uploads/{{novanews.news_image_path}}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title-category_name">{{novanews.category_name}}</h5>
+          <h5 class="card-title" data-bs-target="#newsModal{{$index}}">
+            {{novanews.news_title}}
+          </h5>
+          <p class="card-text">
+            {{novanews.news_content | limitTo:132}}
+            {{novanews.news_content.length > 132 ? '...' : ''}}
+          </p>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#newsModal{{$index}}"
+          >
+            Прочитај повеќе
+          </button>
+        </div>
       </div>
-      <div class="card-footer">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
-      </div>
-    </div>
 
-    <!-- .............modal so slika.............. -->
-    <div class="modal fade" id="newsModal{{$index}}" tabindex="-1" aria-labelledby="newsModalLabel{{$index}}" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="newsModalLabel{{$index}}">{{novanews.news_title}}</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <img src="./uploads/{{novanews.news_image_path}}" class="img-fluid mb-3" alt="news image">
-            <p>{{novanews.news_content}}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+      <!-- .............modal so slika.............. -->
+      <div
+        class="modal fade"
+        id="newsModal{{$index}}"
+        tabindex="-1"
+        aria-labelledby="newsModalLabel{{$index}}"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="newsModalLabel{{$index}}">
+                {{novanews.news_title}}
+              </h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <img
+                src="./uploads/{{novanews.news_image_path}}"
+                class="img-fluid mb-3"
+                alt="news image"
+              />
+              <p>{{novanews.news_content}}</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Затвори
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -67,24 +133,33 @@
   </div>
 </div>
 
-</div>
-
 <!-- news section end -->
 
-
 <!-- -----divider----- -->
-<hr class="divider">
+<hr class="divider" />
 <!-- -----divider----- -->
-
 
 <!-- -----media carousel start----- -->
 <div class="container-fluid col-xl-10">
   <h2 class="mediaCarousel-heading">Фото на денот</h2>
-  
-  <div class="carousel slide mx-auto" id="mediaCarousel" data-bs-ride="carousel">
+
+  <div
+    class="carousel slide mx-auto"
+    id="mediaCarousel"
+    data-bs-ride="carousel"
+    data-bs-interval="2600"
+  >
     <div class="carousel-inner">
-      <div ng-repeat="novamedia in media | orderBy:'-media_id'" class="carousel-item" ng-class="{active: $index === 0}">
-        <img data-ng-src="./uploads/{{novamedia.media_image_path}}" class="d-block w-100 carousel-image" alt="{{novamedia.media_title}}">
+      <div
+        ng-repeat="novamedia in media | orderBy:'-media_id'"
+        class="carousel-item"
+        ng-class="{active: $index === 0}"
+      >
+        <img
+          data-ng-src="./uploads/{{novamedia.media_image_path}}"
+          class="d-block w-100 carousel-image"
+          alt="{{novamedia.media_title}}"
+        />
         <div class="carousel-caption d-none d-md-block">
           <h5>{{novamedia.media_title}}</h5>
           <p>{{novamedia.media_datetime}}</p>
@@ -92,11 +167,21 @@
       </div>
     </div>
 
-    <a class="carousel-control-prev" href="#mediaCarousel" role="button" data-bs-slide="prev">
+    <a
+      class="carousel-control-prev"
+      href="#mediaCarousel"
+      role="button"
+      data-bs-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#mediaCarousel" role="button" data-bs-slide="next">
+    <a
+      class="carousel-control-next"
+      href="#mediaCarousel"
+      role="button"
+      data-bs-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </a>

@@ -1,7 +1,7 @@
 <div class="container-fluid col-sm-9 media-container">
   <h2 class="mediaCarousel-heading">Фото на денот</h2>
   
-  <div class="carousel slide mx-auto" id="mediaCarousel" data-bs-ride="carousel">
+  <div class="carousel slide mx-auto" id="mediaCarousel" data-bs-ride="carousel" data-bs-interval="2600">
     <div class="carousel-inner">
       <div ng-repeat="novamedia in media | orderBy:'-media_id'" class="carousel-item" ng-class="{active: $index === 0}">
         <img data-ng-src="./uploads/{{novamedia.media_image_path}}" class="d-block w-100 carousel-image" alt="{{novamedia.media_title}}">

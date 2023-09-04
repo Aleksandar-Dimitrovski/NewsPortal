@@ -8,20 +8,15 @@
 .vestilogo a {
   font-size: 48px;
   font-weight: bold;
-  color: white !important;
+  color: white;
   text-decoration: none;
-  margin-left: 51px;  
   transition: transform 0.2s ease-in-out;
-  text-shadow: 1px 1px 2px black, 0 0 0.5em rgba(255, 255, 255, 0.5), 0 0 0.1em rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px 2px black, 0 0 0.5em rgba(255, 255, 255, 0.5),
+    0 0 0.1em rgba(255, 255, 255, 0.5);
 }
 .navbar .vestilogo:hover {
   transform: scale(1.14);
   transition: all 0.12s ease-in-out;
-} 
-@media (max-width: 992px) {
-  .vestilogo a {
-    margin-left: 72px;
-  }
 }
 .navbar-hamburger i {
   color: #ffffff;
@@ -29,17 +24,19 @@
 }
 @media (max-width: 992px) {
   .navbar-collapse {
-    background-color: #205731;
+    background-color: #217b3a;
     text-align: start;
+    max-width: none;
+    margin-top: 9px;
+    margin-right: 156px;
+    border-radius: 6px;
+    opacity: 0.87;
   }
-}
-.social-media-icons {
-  margin-right: 72px;
 }
 .custom-icon {
   background-color: #217b3a;
   border: none;
-  font-size: 27px; /* Increase the font-size value to make the icon bigger */
+  font-size: 27px;
 }
 /* navbar-top end */
 
@@ -64,22 +61,30 @@
   justify-content: center;
   align-items: center;
   border-right: 3px solid #b7b6b6;
-  padding: 0 auto; 
-  line-height: 12px; 
+  padding: 0 auto;
+  line-height: 12px;
+}
+@media (max-width: 992px) {
+  .navbar-bottom ul li {
+    justify-content: flex-start;
+    border-right: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 @media (min-width: 992px) {
   .navbar-bottom ul li {
-    padding: 0 12px; 
+    padding: 0 12px;
   }
 }
 @media (min-width: 1140px) {
   .navbar-bottom ul li {
-    padding: 0 18px; 
+    padding: 0 18px;
   }
 }
 @media (min-width: 1350px) {
   .navbar-bottom ul li {
-    padding: 0 24px; 
+    padding: 0 24px;
   }
 }
 .navbar-bottom ul li:last-child {
@@ -98,13 +103,16 @@
   transform: scale(1.08);
   transition: all 0.1s ease-in-out;
 }
+.navbar-toggler {
+  color: #ccc9c9;
+}
 /* navbar-bottom end */
 
 /* -----index page----- */
 body {
   margin: 0;
   background-color: #e6e6e6;
-  }
+}
 
 /* -----news devider start----- */
 .divider {
@@ -116,47 +124,47 @@ body {
 /* -----news devider end----- */
 
 /* -----news carousel start----- */
-  .newsCarousel-heading {
+.newsCarousel-heading {
   font-size: 36px;
   text-align: center;
   font-weight: bold;
   margin-top: 18px;
+}
+@media (max-width: 991px) {
+  .newsCarousel-heading {
+    display: none;
   }
-  @media (max-width: 991px) {
-    .newsCarousel-heading {
-      display: none;
-    }
-  }
-  #newsCarousel .carousel-item {
+}
+#newsCarousel .carousel-item {
   height: 72vh;
-  }  
-  #newsCarousel .carousel-item img {
+}
+#newsCarousel .carousel-item img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   max-width: 100%;
   border-radius: 12px;
-  }      
-  #newsCarousel .carousel-caption {
-  background-color: rgba(0,0,0,0.5);
+}
+#newsCarousel .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
-  }  
-  #newsCarousel .carousel-caption h5 {
+}
+#newsCarousel .carousel-caption h5 {
   color: white;
   font-size: 27px;
   margin: 0;
-  }  
-  #newsCarousel .carousel-image {
+}
+#newsCarousel .carousel-image {
   margin: 0 auto;
-  }  
-  #newsCarousel {
+}
+#newsCarousel {
   margin: 24px auto;
   font-size: 2rem;
   font-weight: bold;
-  }
-  /* -----news carousel end----- */
+}
+/* -----news carousel end----- */
 
-  /* -----news seection start-----*/
+/* -----news seection start-----*/
 .news-container {
   background-color: #f9f9f9;
   border: rgb(178, 178, 178) 0.3px solid;
@@ -231,11 +239,11 @@ body {
 
 /* Cyrilic font at the card category start */
 @font-face {
-  font-family: 'Makedonski Tajms Regular';
-  src: url('../assets/fonts/Makedonski\ Tajms\ Regular.ttf') format('truetype');
+  font-family: "Makedonski Tajms Regular";
+  src: url("../assets/fonts/Makedonski\ Tajms\ Regular.ttf") format("truetype");
 }
 .card-title-category_name {
-  font-family: 'Makedonski Tajms Regular', sans-serif;
+  font-family: "Makedonski Tajms Regular", sans-serif;
   font-weight: bold;
 }
 /* Cyrilic font at the card category end */
@@ -253,7 +261,7 @@ body {
 .categories-container .modal-body img {
   border-radius: 9px;
 }
-.categories-container .card { 
+.categories-container .card {
   background-color: #ffffff;
   border: rgb(178, 178, 178) 0.6px solid;
 }
@@ -296,7 +304,7 @@ body {
     margin-left: 237px;
     margin-right: 237px;
   }
-}  
+}
 /* -----media carousel end----- */
 
 footer {
@@ -320,5 +328,5 @@ footer {
 }
 .footer-bottom a {
   color: #217b3a;
-  font-size: x-large;
+  font-size: larger;
 }

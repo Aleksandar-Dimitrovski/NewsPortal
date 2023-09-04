@@ -28,3 +28,33 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+//hamburger content close when clicked outside
+document.addEventListener('DOMContentLoaded', function () {
+  const collapseElements = document.querySelectorAll('[data-bs-auto-close="outside"]');
+  
+  collapseElements.forEach(function (collapse) {
+    collapse.addEventListener('show.bs.collapse', function () {
+      document.addEventListener('click', outsideCollapseClickHandler);
+    });
+    
+    collapse.addEventListener('hide.bs.collapse', function () {
+      document.removeEventListener('click', outsideCollapseClickHandler);
+    });
+  });
+  
+  function outsideCollapseClickHandler(event) {
+    const target = event.target;
+    
+    if (!target.closest('[data-bs-auto-close="outside"]')) {
+      const collapses = document.querySelectorAll('[data-bs-auto-close="outside"]');
+      
+      collapses.forEach(function (collapse) {
+        const collapseInstance = bootstrap.Collapse.getInstance(collapse);
+        if (collapseInstance) {
+          collapseInstance.hide();
+        }
+      });
+    }
+  }
+});
+
