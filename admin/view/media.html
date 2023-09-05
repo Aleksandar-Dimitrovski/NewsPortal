@@ -1,70 +1,103 @@
-<div class="col-sm-3 col-md-4">        
-</div><!--left cont.-->
-<div class="col-sm-9">        
+<div class="col-sm-3 col-md-4"></div>
+<!--left cont.-->
+<div class="col-sm-9">
   <h2>Медиа</h2>
 
+  <table class="table table-bordered border-primary">
+    <thead>
+      <tr>
+        <th>Reden broj</th>
+        <th>media_title</th>
+        <th>media_type</th>
+        <th>media_datetime</th>
+        <th>media_image_path</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="novamedia in media">
+        <td>{{$index+1}}</td>
+        <td>{{novamedia.media_title}}</td>
+        <td>{{novamedia.media_type}}</td>
+        <td>{{novamedia.media_datetime}}</td>
+        <td>
+          <img
+            ng-src="../uploads/{{novamedia.media_image_path}}"
+            alt=""
+            width="300px"
+          />
+        </td>
+        <td>
+          <a href="#!details_media/{{$index}}">
+            <button
+              type="button"
+              class="btn btn-s uccess"
+              data-ng-click="getId($index)"
+            >
+              <i class="btn btn-success fa fa-pencil"></i>
+            </button>
+          </a>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-ng-click="getId($index)"
+            data-bs-toggle="modal"
+            data-bs-target="#mediaModal"
+          >
+            <i class="btn btn-danger fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
+  <!--modal strart-->
 
-    <table class="table table-bordered border-primary">
-      <thead>
-          <tr>
-              <th>Reden broj</th>
-              <th>media_title</th>
-              <th>media_type</th>
-              <th>media_datetime</th>
-              <th>media_image_path</th>
-              <th>EDIT</th>
-              <th>DELETE</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr ng-repeat="novamedia in media">
-              <td>{{$index+1}}</td>
-              <td>{{novamedia.media_title}}</td>
-              <td>{{novamedia.media_type}}</td>
-              <td>{{novamedia.media_datetime}}</td>
-              <td><img ng-src="../uploads/{{novamedia.media_image_path}}" alt=""></td>
-              <td><a href="#!details_media/{{$index}}">
-                <button type="button" 
-                class="btn btn-s uccess" 
-                data-ng-click="getId($index)" 
-                ><i class="btn btn-success fa fa-pencil"></i>
-                </button>
-              </a></td>
-              <td><button type="button" 
-                class="btn btn-danger" 
-                data-ng-click="getId($index)" 
-                data-bs-toggle="modal"
-                data-bs-target="#mediaModal">
-                <i class="btn btn-danger fa fa-trash"></i>
-                </button>
-              </td>           
-          </tr>         
-      </tbody>
-  </table> 
-
-
-<!--modal strart-->
-
-<div class="modal fade" id="mediaModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="mediaModal"
+    tabindex="-1"
+    aria-labelledby=""
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-danger">
-                <h5 class="modal-title text-dark" id="exampleModalLabel"><i><b>Delete!</b></i></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h3>{{getPosition}}:- Дали сте сигурни дека сакате да го избришите насловот: {{media[getPosition].media_title}}</h3>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" 
-                    data-ng-click="deleteRow('media',media[getPosition].media_id)"
-                    data-bs-dismiss="modal">Потврди</button>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Откажи</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h5 class="modal-title text-dark" id="exampleModalLabel">
+            <i><b>Delete!</b></i>
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
+        <div class="modal-body">
+          <h3>
+            {{getPosition}}:- Дали сте сигурни дека сакате да го избришите
+            насловот: {{media[getPosition].media_title}}
+          </h3>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-ng-click="deleteRow('media',media[getPosition].media_id)"
+            data-bs-dismiss="modal"
+          >
+            Потврди
+          </button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+            Откажи
+          </button>
+        </div>
+      </div>
     </div>
-</div> 
+  </div>
 
-<!--modal end-->
+  <!--modal end-->
 </div>
