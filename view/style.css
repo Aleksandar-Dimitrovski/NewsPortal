@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* navbar-top start */
 .navbar-top {
   background-color: #217b3a;
@@ -112,14 +113,15 @@
 body {
   margin: 0;
   background-color: #e6e6e6;
+  /* font-family: Raleway; */
 }
 
 /* -----news devider start----- */
 .divider {
   height: 3px;
-  background-color: #1f1f1f;
-  margin-top: 55px;
-  margin-bottom: 78px;
+  background-color: #1a1919;
+  /* margin-top: 55px;
+  margin-bottom: 78px; */
 }
 /* -----news devider end----- */
 
@@ -128,12 +130,13 @@ body {
   font-size: 36px;
   text-align: center;
   font-weight: bold;
-  margin-top: 18px;
+  margin-top: 24px;
 }
 @media (max-width: 991px) {
   .newsCarousel-heading {
-    display: none;
-  }
+font-size: 21px; 
+text-align: start; 
+}
 }
 #newsCarousel .carousel-item {
   height: 72vh;
@@ -166,7 +169,7 @@ body {
 }
 @media (max-width: 423px) {
   #newsCarousel .carousel-caption h5 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
   }
 }
@@ -174,6 +177,9 @@ body {
   #newsCarousel .carousel-caption h5 {
     font-size: 22px;
   }
+}
+.newsCarousel-p {
+  font-size: 18px;
 }
 #newsCarousel .carousel-image {
   margin: 0 auto;
@@ -185,19 +191,15 @@ body {
 }
 /* -----news carousel end----- */
 
-/* -----news seection start-----*/
+/* -----news section start-----*/
 .news-container {
   background-color: #f9f9f9;
   border: rgb(178, 178, 178) 0.3px solid;
   border-radius: 12px;
   padding: 12px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
-/* @media (min-width: 1600px) {
-  .news-container {
-    margin-left: 243px;
-    margin-right: 243px;
-  }
-}   */
 .news-container .card {
   display: flex;
   flex-direction: column;
@@ -260,12 +262,12 @@ body {
 
 /* Cyrilic font at the card category start */
 @font-face {
-  font-family: "Makedonski Tajms Regular";
+  font-family: "Macedonian Helv Regular";
   src: url("../assets/fonts/Makedonski\ Tajms\ Regular.ttf") format("truetype");
 }
 .card-title-category_name {
-  font-family: "Makedonski Tajms Regular", sans-serif;
-  font-weight: bold;
+  font-family: "Macedonian Helv Regular";
+  font-weight: bolder;
 }
 /* Cyrilic font at the card category end */
 /* <!-- news section end -----> */
@@ -295,15 +297,30 @@ body {
   font-weight: bold;
   margin-top: 18px;
 }
-#mediaCarousel .carousel-item {
-  height: 72vh;
+@media (max-width: 575px) {
+  .mediaCarousel-heading {
+    font-size: 30px;
+  }
 }
+/* #mediaCarousel .carousel-item {
+  height: 72vh;
+} */
 #mediaCarousel .carousel-item img {
-  height: 100%;
+  height: 72vh
   width: 100%;
   object-fit: cover;
   max-width: 100%;
   border-radius: 12px;
+}
+@media (max-width: 719px) {
+  #mediaCarousel .carousel-item img {
+    height: 38vh;
+  }
+}
+@media (max-width: 423px) {
+  #mediaCarousel .carousel-item img {
+    height: 27vh;
+  }
 }
 #mediaCarousel .carousel-caption {
   background-color: rgba(3, 3, 3, 0.5);
@@ -311,14 +328,27 @@ body {
 }
 #mediaCarousel .carousel-caption h5 {
   color: white;
-  font-size: 42px;
+  font-size: 27px;
   margin: 0;
+}
+@media (max-width: 423px) {
+  #mediaCarousel .carousel-caption h5 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+@media (min-width: 424px) and (max-width: 719px) {
+  #mediaCarousel .carousel-caption h5 {
+    font-size: 22px;
+  }
 }
 #mediaCarousel .carousel-image {
   margin: 0 auto;
 }
 #mediaCarousel {
   margin: 24px auto;
+  font-size: 2rem;
+  font-weight: bold;
 }
 /* -----media carousel end----- */
 
@@ -344,4 +374,5 @@ footer {
 .footer-bottom a {
   color: #217b3a;
   font-size: larger;
+  text-decoration: none;
 }

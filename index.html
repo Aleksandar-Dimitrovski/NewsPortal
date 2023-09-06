@@ -17,6 +17,8 @@
       integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./view/style.css" />
@@ -169,7 +171,7 @@
     </div>
 
     <!-- -----news carousel start----- -->
-    <div class="container-fluid col-xxl-10">
+    <div class="container-fluid col-xxl-10 my-5">
       <h2 class="newsCarousel-heading">Најнови вести</h2>
 
       <div
@@ -191,7 +193,9 @@
             />
             <div class="carousel-caption">
               <h5>{{novanews.news_title}}</h5>
-              <p class="d-none d-md-block">{{novanews.news_datetime}}</p>
+              <p class="d-none d-md-block newsCarousel-p">
+                {{novanews.news_datetime}}
+              </p>
             </div>
           </div>
         </div>
@@ -222,7 +226,9 @@
     <!-- -----divider----- -->
 
     <!-- -----news sesection start----- -->
-    <div class="container-fluid col-xl-10">
+    <div class="container-fluid col-xxl-10 my-5">
+      <h2 class="newsCarousel-heading">Сите вести</h2>
+
       <div class="row row-cols-1 row-cols-md-3 g-4 news-container">
         <div
           class="col mb-2"
@@ -311,14 +317,14 @@
     <!-- -----divider----- -->
 
     <!-- -----media carousel start----- -->
-    <div class="container-fluid col-xxl-9 media-container">
+    <div class="container-fluid col-xxl-10 media-container mt-4">
       <h2 class="mediaCarousel-heading">Фото на денот</h2>
 
       <div
         class="carousel slide mx-auto"
         id="mediaCarousel"
         data-bs-ride="carousel"
-        data-bs-interval="2600"
+        data-bs-interval="2700"
       >
         <div class="carousel-inner">
           <div
@@ -331,9 +337,11 @@
               class="d-block w-100 carousel-image"
               alt="{{novamedia.media_title}}"
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <h5>{{novamedia.media_title}}</h5>
-              <p>{{novamedia.media_datetime}}</p>
+              <p class="d-none d-md-block newsCarousel-p">
+                {{novamedia.media_datetime}}
+              </p>
             </div>
           </div>
         </div>
