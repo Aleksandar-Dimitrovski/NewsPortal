@@ -32,14 +32,14 @@
   <body data-ng-app="myApp" data-ng-controller="myCtrl">
     <nav class="navbar navbar-expand-lg navbar-top">
       <div
-        class="container-fluid d-flex mx-sm-5 justify-content-center justify-content-md-between"
+        class="container-fluid d-flex mx-sm-5 justify-content-center justify-content-lg-between"
       >
         <!-- Logo -->
         <div class="navbar-brand vestilogo">
           <a href="#!index">42ВЕСТИ</a>
         </div>
         <!-- Social media icons -->
-        <div class="social-media-icons d-none d-md-flex">
+        <div class="social-media-icons d-none d-lg-flex">
           <a
             href="https://www.facebook.com/profile.php?id=100091860499393"
             target="_blank"
@@ -172,7 +172,7 @@
 
     <!-- -----news carousel start----- -->
     <div class="container-fluid col-xxl-10 my-5">
-      <h2 class="newsCarousel-heading">Најнови вести</h2>
+      <h2 class="headings">Најнови вести</h2>
 
       <div
         class="carousel slide mx-auto"
@@ -227,9 +227,9 @@
 
     <!-- -----news sesection start----- -->
     <div class="container-fluid col-xxl-10 my-5">
-      <h2 class="newsCarousel-heading">Сите вести</h2>
+      <h2 class="headings">Сите вести</h2>
 
-      <div class="row row-cols-1 row-cols-md-3 g-4 news-container">
+      <div class="row row-cols-1 row-cols-md-3 g-3 news-container">
         <div
           class="col mb-2"
           ng-repeat="novanews in news | orderBy:'-news_id' | limitTo:18"
@@ -318,7 +318,7 @@
 
     <!-- -----media carousel start----- -->
     <div class="container-fluid col-xxl-10 media-container mt-4">
-      <h2 class="mediaCarousel-heading">Фото на денот</h2>
+      <h2 class="headings">Фото на денот</h2>
 
       <div
         class="carousel slide mx-auto"

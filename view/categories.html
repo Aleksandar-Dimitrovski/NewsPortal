@@ -1,36 +1,79 @@
-<div class="container-fluid col-lg-9 my-3 categories-container">
+<div class="container-fluid col-xxl-10 my-3 categories-container">
   <div class="row">
+    <h3 class="card-title-category_name mt-4 d-lg-none">
+      {{selectedCategory}}
+    </h3>
+
     <div class="col-12">
       <div class="d-flex justify-content-center mb-3"></div>
     </div>
 
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-ng-repeat="novanews in news | filter:{category_name:selectedCategory} | orderBy:'-news_id'">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 mb-4"
+      data-ng-repeat="novanews in news | filter:{category_name:selectedCategory} | orderBy:'-news_id'"
+    >
       <div class="card h-100">
         <h6 class="card-title-category_name">{{novanews.category_name}}</h6>
-        <img class="card-img-top img-fluid" data-ng-src="./uploads/{{novanews.news_image_path}}" alt="Card image cap">
+        <img
+          class="card-img-top img-fluid"
+          data-ng-src="./uploads/{{novanews.news_image_path}}"
+          alt="Card image cap"
+        />
         <div class="card-body">
           <!-- <h5 class="card-title-category_name">{{novanews.category_name}}</h5> -->
           <h5 class="card-title">{{novanews.news_title}}</h5>
           <!-- <p class="card-text">{{novanews.news_content | limitTo:153}}...</p> -->
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#newsModal{{$index}}">Прочитај повеќе</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#newsModal{{$index}}"
+          >
+            Прочитај повеќе
+          </button>
         </div>
       </div>
 
-      <div class="modal fade" id="newsModal{{$index}}" tabindex="-1" aria-labelledby="newsModalLabel{{$index}}" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div
+        class="modal fade"
+        id="newsModal{{$index}}"
+        tabindex="-1"
+        aria-labelledby="newsModalLabel{{$index}}"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+        >
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="newsModalLabel{{$index}}">{{novanews.news_title}}</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h4 class="modal-title" id="newsModalLabel{{$index}}">
+                {{novanews.news_title}}
+              </h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
-              <img src="./uploads/{{novanews.news_image_path}}" class="img-fluid mb-3" alt="news image">  
+              <img
+                src="./uploads/{{novanews.news_image_path}}"
+                class="img-fluid mb-3"
+                alt="news image"
+              />
               <p>{{novanews.news_content}}</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Затвори
+              </button>
             </div>
           </div>
         </div>
